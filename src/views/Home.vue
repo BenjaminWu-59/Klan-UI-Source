@@ -1,7 +1,10 @@
 <template>
 <div class="topnav">
-  <div class="log"></div>
-  <div class="menu"></div>
+  <div class="logo">LOGO</div>
+  <ul class="menu">
+    <li>菜单1</li>
+    <li>菜单2</li>
+  </ul>
 </div>
   <div class="banner">
     <h1>KanLan UI</h1>
@@ -20,5 +23,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.topnav {
+  background: #313232;
+  color: #d6d6d6;
+  display: flex;
+  padding: 16px;
+  box-shadow: 0 0 7px 1px #5a5959;
+  > .logo {
+    font-weight: bold;
+    max-width: 6em;
+    margin-right: auto;
+  }
+  > .menu {
+    display: flex;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    > li {
+      margin: 0 1em;
+    }
+  }
+}
 </style>
