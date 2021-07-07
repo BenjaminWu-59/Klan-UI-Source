@@ -20,6 +20,7 @@ export default {
 
 <style lang="scss" scoped>
 .banner {
+  height:80vh;
   padding: 100px 0;
   display: flex;
   justify-content: center;

@@ -1,10 +1,13 @@
 <template>
   <div class="topnav">
-    <div class="logo" @click="toggleMenu">LOGO</div>
+    <div class="logo">LOGO</div>
     <ul class="menu">
-      <li>菜单1</li>
+      <li>
+        <router-link to="/">主页</router-link>
+      </li>
       <li>菜单2</li>
     </ul>
+    <span class="toggleAside" @click="toggleMenu"></span>
   </div>
 </template>
 
@@ -25,13 +28,15 @@ export default {
 
 <style lang="scss" scoped>
 .topnav {
-  background: #313232;
-  color: #f6f7f8;
+  background: #fcfcfc;
+  color: #0c0c0c;
   display: flex;
   padding: 16px;
   box-shadow: 0 0 6px 1px #707070;
   position: relative;
   z-index: 10;
+  justify-content: center;
+  align-items: center;
   > .logo {
     font-weight: bold;
     max-width: 6em;
@@ -48,5 +53,21 @@ export default {
       margin: 0 1em;
     }
   }
+  > .toggleAside {
+    display: none;
+    width: 24px;
+    height: 24px;
+    background: red;
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @media(max-width: 500px){
+    >.menu{display: none}
+    >.logo{margin:0 auto}
+    >.toggleAside{display: inline-block}
+  }
+
 }
 </style>
