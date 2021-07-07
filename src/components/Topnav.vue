@@ -5,7 +5,7 @@
     </router-link>
     <ul class="menu">
       <li>
-        <router-link to="/">主页</router-link>
+        <router-link to="/">菜单</router-link>
       </li>
       <li>菜单2</li>
     </ul>
