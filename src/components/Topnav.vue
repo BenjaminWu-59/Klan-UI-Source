@@ -32,7 +32,10 @@ export default {
   display: flex;
   padding: 16px;
   box-shadow: 0 0 6px 1px #707070;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 10;
   justify-content: center;
   align-items: center;
