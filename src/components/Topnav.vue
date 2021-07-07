@@ -1,6 +1,8 @@
 <template>
   <div class="topnav">
-    <div class="logo">LOGO</div>
+    <router-link to="/" class="logo">
+      LOGO
+    </router-link>
     <ul class="menu">
       <li>
         <router-link to="/">主页</router-link>
