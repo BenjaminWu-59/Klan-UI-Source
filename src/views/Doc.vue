@@ -18,7 +18,9 @@
         </li>
       </ol>
     </aside>
-    <main>主内容</main>
+    <main>
+      <router-view />
+    </main>
   </div>
 </template>
 
@@ -31,7 +33,6 @@ export default {
   },
   setup(){
     const menuVisible = inject<Ref<boolean>>('menuVisible') //get 获取xxx的值
-    console.log(menuVisible.value);
     return {menuVisible}
   }
 };

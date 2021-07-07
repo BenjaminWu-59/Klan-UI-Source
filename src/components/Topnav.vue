@@ -17,7 +17,6 @@ import {inject,Ref} from 'vue';
 export default {
   setup(){
     const menuVisible = inject<Ref<boolean>>('menuVisible') //get，，获取xxx的值
-    console.log(menuVisible.value);
     const toggleMenu = ()=>{
       menuVisible.value = !menuVisible.value
     }
