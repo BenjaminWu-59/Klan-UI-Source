@@ -55,8 +55,8 @@ export default {
 
   > .content {
     flex-grow: 1;
-    padding-top: 60px;
-    padding-left: 206px;
+    padding-top: 50px;
+    padding-left: 200px;
     @media (max-width: 500px) {
       padding-left: 0;
     }
@@ -73,13 +73,13 @@ export default {
   > main {
     flex-grow: 1;
     right: 0;
-    padding: 30px;
-    background: lightgreen;
+    padding: 30px 20px 20px 30px;
+    background: #cee4e5;
   }
 }
 
 aside {
-  background: #d5eaea;
+  background: #c3aeea;
   width: 200px;
   padding: 80px 20px;
   position: fixed;

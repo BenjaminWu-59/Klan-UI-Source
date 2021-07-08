@@ -26,7 +26,7 @@ button{
   height: $h;
   width: $h*2;
   border:none;
-  background: gray;
+  background: #9f9f9f;
   border-radius: $h/2;
   position: relative;
   > span{
@@ -40,7 +40,7 @@ button{
     transition: left 0.2s;
   }
   &.checked {
-    background: blue;
+    background: rgba(0, 196, 255, 0.91);
     > span{
       left: calc(100% - #{$h});}
   }
