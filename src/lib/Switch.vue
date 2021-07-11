@@ -1,5 +1,5 @@
 <template>
-<button @click="toggle" :class="{checked:value}">
+<button class='kanlan-switch' @click="toggle" :class="{'kanlan-checked':value}">
   <span></span>
 </button>
 </template>
@@ -19,10 +19,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-button{
+.kanlan-switch{
   height: $h;
   width: $h*2;
   border:none;
@@ -39,7 +39,7 @@ button{
     border-radius: $h2/2;
     transition: left 0.2s;
   }
-  &.checked {
+  &.kanlan-checked {
     background: rgba(0, 196, 255, 0.91);
     > span{
       left: calc(100% - #{$h});}
@@ -48,7 +48,7 @@ button{
   &:active {
     > span { width: $h2 + 4px; }
   }
-  &.checked:active {
+  &.kanlan-checked:active {
     > span { width: $h2 + 4px; margin-left: -4px; }
   }
 }
