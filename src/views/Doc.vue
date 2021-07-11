@@ -74,7 +74,7 @@ export default {
     flex-grow: 1;
     right: 0;
     padding: 30px 20px 20px 30px;
-    background: #cee4e5;
+    background: #f3f6f6;
   }
 }
 
@@ -87,7 +87,7 @@ aside {
   left: 0;
   height: 100%;
   z-index: 1;
-  box-shadow: 5px 0 5px #b5b4b4;
+  box-shadow: 3px 0 3px #a5a4a4;
 
   > h2 {
     margin-bottom: 4px;
