@@ -3,12 +3,11 @@
     <div class="kanlan-dialog-overlay" @click="onClickOverlay"></div>
     <div class="kanlan-dialog-wrapper">
       <div class="kanlan-dialog">
-        <header>标题
+        <header> <slot name="header"/>
           <span @click="close" class="kanlan-dialog-close">&times</span>
         </header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
+          <slot name="content"/>
         </main>
         <footer>
           <Button level="main" @click="ok">OK</Button>
