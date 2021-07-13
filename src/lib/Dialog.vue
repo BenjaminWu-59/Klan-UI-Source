@@ -4,7 +4,7 @@
       <div class="kanlan-dialog-overlay" @click="onClickOverlay"></div>
       <div class="kanlan-dialog-wrapper">
         <div class="kanlan-dialog">
-          <header> <slot name="header"/>
+          <header> <slot name="title"/>
             <span @click="close" class="kanlan-dialog-close">&times</span>
           </header>
           <main>
@@ -58,7 +58,8 @@ export default {
       }
     }
     const cancel = ()=>{
-      close()
+      props.cancel && props.cancel()
+        close()
     }
     return {close, onClickOverlay,ok,cancel};
   },
