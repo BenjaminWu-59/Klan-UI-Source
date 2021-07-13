@@ -1,20 +1,22 @@
 <template>
   <template v-if="visible">
-    <div class="kanlan-dialog-overlay" @click="onClickOverlay"></div>
-    <div class="kanlan-dialog-wrapper">
-      <div class="kanlan-dialog">
-        <header> <slot name="header"/>
-          <span @click="close" class="kanlan-dialog-close">&times</span>
-        </header>
-        <main>
-          <slot name="content"/>
-        </main>
-        <footer>
-          <Button level="main" @click="ok">OK</Button>
-          <Button @click="cancel">Cancel</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="kanlan-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="kanlan-dialog-wrapper">
+        <div class="kanlan-dialog">
+          <header> <slot name="header"/>
+            <span @click="close" class="kanlan-dialog-close">&times</span>
+          </header>
+          <main>
+            <slot name="content"/>
+          </main>
+          <footer>
+            <Button level="main" @click="ok">OK</Button>
+            <Button @click="cancel">Cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 
