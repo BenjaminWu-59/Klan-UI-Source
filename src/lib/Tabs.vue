@@ -3,9 +3,11 @@
     <div class="kanlan-tabs">
       <div class="kanlan-tabs-nav">
         <div class="kanlan-tabs-nav-item" v-for="(t,index) in titles"
+             :ref="el => { if (el) navItems[index] = el }"
              :class="{selected: t === selected}"
              @click="select(t)"
              :key="index">{{ t }}</div>
+        <div class="kanlan-tabs-nav-indicator" ref="indicator"></div>
       </div>
       <div class="kanlan-tabs-content">
         <component class="kanlan-tabs-content-item"
@@ -18,7 +20,7 @@
 
 <script lang="ts">
 import Tab from './Tab.vue';
-import {computed} from 'vue';
+import {onMounted, ref} from 'vue';
 
 export default {
   props:{
@@ -27,6 +29,15 @@ export default {
     }
   },
   setup(props, context) {
+    const navItems = ref<HTMLDivElement[]>([])//使用ref获取节点
+    const indicator = ref<HTMLDivElement>(null)
+    onMounted(()=>{
+      const divs = navItems.value //所有的标签
+      const result = divs.filter(div => div.classList.contains ('selected'))[0]
+      console.log(result);
+      const {width} = result.getBoundingClientRect()
+      indicator.value.style.width = width + 'px'
+    })
     const defaults = context.slots.default();//镶嵌于Tabs中的子标签
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
@@ -40,7 +51,7 @@ export default {
       context.emit('update:selected',title)
    }
 
-    return {defaults, titles,select};
+    return {defaults, titles,select,navItems,indicator};
   }
 };
 </script>
@@ -54,6 +65,7 @@ $border-color: #d9d9d9;
     display: flex;
     color: $color;
     border-bottom: 1px solid $border-color;
+    position:relative;
     &-item {
       padding: 8px 0;
       margin: 0 16px;
@@ -64,6 +76,14 @@ $border-color: #d9d9d9;
       &.selected {
         color: $blue;
       }
+    }
+    &-indicator {
+      position: absolute;
+      height: 3px;
+      background: $blue;
+      left: 0;
+      bottom: -1px;
+      width: 100px;
     }
   }
   &-content {
