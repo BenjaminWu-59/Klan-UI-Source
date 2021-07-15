@@ -1,17 +1,20 @@
 <template>
- <Topnav/>
-  <div class="banner">
-    <h1>KanLan UI</h1>
-    <h2>一个不错的个人UI框架</h2>
-    <p class="actions">
-      <a href="https://github.com">Github</a>
-      <router-link to="/doc">开始</router-link>
-    </p>
+  <div class="topnavAndBanner">
+    <Topnav/>
+    <div class="banner">
+      <h1>KanLan UI</h1>
+      <h2>一个不错的个人UI框架</h2>
+      <p class="actions">
+        <a href="https://github.com">Github</a>
+        <router-link to="/doc">开始</router-link>
+      </p>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import Topnav from '../components/Topnav.vue'
+import Topnav from '../components/Topnav.vue';
+
 export default {
   name: 'Home.vue',
   components: {Topnav},
@@ -19,18 +22,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.topnavAndBanner{
+  background: linear-gradient(145deg, rgba(227,255,253,1) 0%, rgba(183,233,230,1) 100%);
+}
 .banner {
-  height:80vh;
   padding: 100px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #eef5ee;
-  > .actions{
+
+  > .actions {
     padding: 8px 0;
+
     a {
-      margin:0 8px;
+      margin: 0 8px;
       background: #fff;
       display: inline-block;
       $h: 28px;
