@@ -1,13 +1,14 @@
 <template>
   <div class="topnav">
     <router-link to="/" class="logo">
-      LOGO
+      <svg class="icon">
+        <use xlink:href="#icon-king"></use>
+      </svg>
     </router-link>
     <ul class="menu">
       <li>
-        <router-link to="/">菜单</router-link>
+        <router-link to="/">文档</router-link>
       </li>
-      <li>菜单2</li>
     </ul>
     <span class="toggleAside" @click="toggleMenu"></span>
   </div>
@@ -28,11 +29,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$color: #007974;
 .topnav {
-  color: #0c0c0c;
+  color:$color;
   display: flex;
   padding: 16px;
-  box-shadow: 0 0 6px 1px #707070;
+  box-shadow: 0 0 4px 1px #abaaaa;
   position: fixed;
   top: 0;
   left: 0;
@@ -44,6 +46,10 @@ export default {
     font-weight: bold;
     max-width: 6em;
     margin-right: auto;
+    > svg{
+      width: 32px;
+      height: 32px;
+    }
     &:hover {
       cursor: pointer;
     }
