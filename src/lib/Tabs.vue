@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="kanlan-tabs">
-      <div class="kanlan-tabs-nav">
+      <div class="kanlan-tabs-nav" ref="container">
         <div class="kanlan-tabs-nav-item" v-for="(t,index) in titles"
              :ref="el => { if (el) navItems[index] = el }"
              :class="{selected: t === selected}"
@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import Tab from './Tab.vue';
-import {onMounted, ref} from 'vue';
+import {onMounted, onUpdated, ref} from 'vue';
 
 export default {
   props:{
@@ -30,14 +30,22 @@ export default {
   },
   setup(props, context) {
     const navItems = ref<HTMLDivElement[]>([])//使用ref获取节点
-    const indicator = ref<HTMLDivElement>(null)
-    onMounted(()=>{
+    const indicator = ref<HTMLDivElement>(null)//横线节点
+    const container = ref<HTMLDivElement>(null)
+    const x =() =>{
       const divs = navItems.value //所有的标签
       const result = divs.filter(div => div.classList.contains ('selected'))[0]
-      console.log(result);
+      console.log(result);//选中的标签
       const {width} = result.getBoundingClientRect()
       indicator.value.style.width = width + 'px'
-    })
+      const {left:left1} = container.value.getBoundingClientRect()
+      const {left:left2} = result.getBoundingClientRect()
+      const left = left2 - left1
+      indicator.value.style.left = left + 'px'
+    }
+    onMounted(x)
+    onUpdated(x)
+
     const defaults = context.slots.default();//镶嵌于Tabs中的子标签
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
@@ -51,7 +59,7 @@ export default {
       context.emit('update:selected',title)
    }
 
-    return {defaults, titles,select,navItems,indicator};
+    return {defaults, titles,select,navItems,indicator,container};
   }
 };
 </script>
@@ -84,6 +92,7 @@ $border-color: #d9d9d9;
       left: 0;
       bottom: -1px;
       width: 100px;
+      transition:all 250ms ;
     }
   }
   &-content {
