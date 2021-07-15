@@ -7,10 +7,13 @@
     </router-link>
     <ul class="menu">
       <li>
-        <router-link to="/">文档</router-link>
+        <router-link to="/">菜单1</router-link>
       </li>
+      <li>菜单2</li>
     </ul>
-    <span class="toggleAside" @click="toggleMenu"></span>
+    <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
+      <use xlink:href="#icon-menu"></use>
+    </svg>
   </div>
 </template>
 
@@ -18,6 +21,12 @@
 import {inject,Ref} from 'vue';
 
 export default {
+  props:{
+    toggleMenuButtonVisible:{
+      type:Boolean,
+      default:false
+    }
+  },
   setup(){
     const menuVisible = inject<Ref<boolean>>('menuVisible') //get，，获取xxx的值
     const toggleMenu = ()=>{
@@ -67,7 +76,6 @@ $color: #007974;
     display: none;
     width: 24px;
     height: 24px;
-    background: red;
     position: absolute;
     left: 16px;
     top: 50%;
