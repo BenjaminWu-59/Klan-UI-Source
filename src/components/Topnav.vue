@@ -32,14 +32,15 @@ export default {
 $color: #007974;
 .topnav {
   color:$color;
+  background: #ffff;
   display: flex;
   padding: 16px;
-  box-shadow: 0 0 4px 1px #abaaaa;
+  box-shadow: 0 0 5px 2px #e2e0e0;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 20;
   justify-content: center;
   align-items: center;
   > .logo {
@@ -47,8 +48,8 @@ $color: #007974;
     max-width: 6em;
     margin-right: auto;
     > svg{
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
     }
     &:hover {
       cursor: pointer;

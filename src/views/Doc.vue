@@ -51,6 +51,9 @@ export default {
 
   > .nav {
     flex-shrink: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
 
   > .content {
@@ -74,20 +77,19 @@ export default {
     flex-grow: 1;
     right: 0;
     padding: 30px 20px 20px 30px;
-    background: #f3f6f6;
   }
 }
 
 aside {
-  background: #d2c8e5;
   width: 200px;
   padding: 80px 20px;
+  background: #ffff;
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   z-index: 1;
-  box-shadow: 3px 0 3px #a5a4a4;
+  box-shadow: 3px 0 3px#e2e0e0;
 
   > h2 {
     margin-bottom: 4px;
