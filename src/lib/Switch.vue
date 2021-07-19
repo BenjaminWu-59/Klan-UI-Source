@@ -40,7 +40,7 @@ $h2: $h - 4px;
     transition: left 0.2s;
   }
   &.kanlan-checked {
-    background: rgba(0, 196, 255, 0.91);
+    background: rgba(79, 155, 222, 0.91);
     > span{
       left: calc(100% - #{$h});}
   }
