@@ -21,7 +21,7 @@ export const router = createRouter({
             path: '/doc',
             component: Doc,
             children: [
-                {path:'',component:DocDemo},
+                {path:'',redirect:'/doc/intro'},
                 {path:'intro',component:h(Markdown,{path:'../markdown/intro.md',key:'1'})},
                 {path:'get-started',component:h(Markdown,{path:'../markdown/get-started.md',key:'2'})},
                 {path:'install',component:h(Markdown,{path:'../markdown/install.md',key:'3'})},
