@@ -10,9 +10,8 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>&lt;Switch v-model:value="bool" disabled /&gt;</pre>
+        <pre>{{Switch1Demo.__sourceCode}}</pre>
       </div>
-
     </div>
     <div class="demo">
       <h2>支持 disabled </h2>
@@ -23,7 +22,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>&lt;Switch v-model:value="bool" disabled /&gt;</pre>
+        <pre>{{Switch2Demo.__sourceCode}}</pre>
       </div>
     </div>
   </div>
@@ -41,7 +40,7 @@ export default {
   components: {Switch, Button,Switch1Demo,Switch2Demo},
   setup() {
     const bool = ref(false);
-    return {bool};
+    return {bool,Switch1Demo,Switch2Demo};
   }
 };
 </script>

@@ -1,3 +1,8 @@
+<demo>
+支持disabled
+</demo>
+
+
 <template>
   <Switch v-model:value="bool" disabled/>
 </template>
@@ -13,7 +18,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-
-</style>
