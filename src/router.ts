@@ -3,11 +3,12 @@ import Doc from './views/Doc.vue';
 import SwitchDemo from './components/Switch/SwitchDemo.vue';
 import ButtonDemo from './components/Button/ButtonDemo.vue';
 import DialogDemo from './components/Dialog/DialogDemo.vue';
-import TabsDemo from './components/TabsDemo.vue';
-import DocDemo from './components/DocDemo.vue';
+import TabsDemo from './components/Tabs/TabsDemo.vue';
+import ListDemo from './components/List/ListDemo.vue';
 import {createRouter, createWebHashHistory} from 'vue-router';
 import Markdown from './components/Markdown.vue';
 import {h} from 'vue';
+
 
 
 
@@ -29,6 +30,7 @@ export const router = createRouter({
                 {path: 'button', 'component': ButtonDemo},
                 {path: 'dialog', 'component': DialogDemo},
                 {path: 'tabs', 'component': TabsDemo},
+                {path: 'list', 'component': ListDemo},
             ]
         }
     ]

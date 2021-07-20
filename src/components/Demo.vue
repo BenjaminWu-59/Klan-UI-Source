@@ -73,4 +73,8 @@ $border-color: #d9d9d9;
     }
   }
 }
+.demo:hover{
+  box-shadow: 0 0 10px 0 rgb(232 237 250 / 70%),
+  0 5px 7px 0 rgb(232 237 250 / 60%);
+}
 </style>

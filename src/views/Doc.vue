@@ -30,6 +30,9 @@
             <li>
               <router-link to="/doc/tabs">Tabs 组件</router-link>
             </li>
+            <li>
+              <router-link to="/doc/list">List 组件</router-link>
+            </li>
           </ol>
         </aside>
       </transition>
@@ -100,7 +103,7 @@ aside {
   top: 0;
   left: 0;
   height: 100%;
-  z-index: 1;
+  z-index: 10;
   box-shadow: 3px 0 3px#e2e0e0;
 
   > h2 {

@@ -7,7 +7,7 @@
 <script lang="ts">
 import Tabs1demo from './Tabs1demo.vue';
 import Tabs2demo from './Tabs2demo.vue';
-import Demo from './Demo.vue';
+import Demo from '../Demo.vue';
 export default {
   components:{
    Demo

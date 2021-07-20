@@ -44,6 +44,7 @@ $h2: $h - 4px;
     > span{
       left: calc(100% - #{$h});}
   }
+
   &:focus { outline: none; }
   &:active {
     > span { width: $h2 + 4px; }
@@ -52,7 +53,33 @@ $h2: $h - 4px;
     > span { width: $h2 + 4px; margin-left: -4px; }
   }
 }
-
+.kanlan-switch:after{
+  content: "";
+  display: block;
+  position: absolute;
+  //扩大伪类元素4个方向各5px
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  //使其圆润
+  border-radius: 12px;
+  pointer-events: none;
+  background-color: #333;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  opacity: 0;
+  transition: all .3s;
+}
+.kanlan-switch:active:after {
+  opacity: .3;
+  //设置初始状态
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0s;
+}
 
 
 </style>

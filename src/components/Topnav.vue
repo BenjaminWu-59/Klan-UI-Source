@@ -7,9 +7,9 @@
     </router-link>
     <ul class="menu">
       <li>
-        <router-link to="/">菜单1</router-link>
+        <router-link to="/">主页</router-link>
       </li>
-      <li>菜单2</li>
+      <li>其他</li>
     </ul>
     <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
       <use xlink:href="#icon-menu"></use>
