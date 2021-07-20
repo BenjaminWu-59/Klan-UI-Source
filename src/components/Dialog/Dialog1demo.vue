@@ -31,7 +31,7 @@ export default {
       x.value = !x.value
     }
     const ok = ()=>{
-      //自行点击ok添加干点啥
+      //自行添加点击ok干点啥
       return false
     }
     const cancel = ()=>{

@@ -2,11 +2,11 @@
   <div>
     <div class="kanlan-tabs">
       <div class="kanlan-tabs-nav" ref="container">
-        <div class="kanlan-tabs-nav-item" v-for="(t,index) in titles"
+        <div class="kanlan-tabs-nav-item" v-for="(tab,index) in tabs"
              :ref="el => { if (el) navItems[index] = el }"
-             :class="{selected: t === selected}"
-             @click="select(t)"
-             :key="index">{{ t }}</div>
+             :class="{selected: tab.title === selected, disabled: tab.disabled}"
+             @click="select(tab)"
+             :key="index">{{ tab.title }}</div>
         <div class="kanlan-tabs-nav-indicator" ref="indicator"></div>
       </div>
       <div class="kanlan-tabs-content">
@@ -34,8 +34,7 @@ export default {
     const container = ref<HTMLDivElement>(null)
     const x =() =>{
       const divs = navItems.value //所有的标签
-      const result = divs.filter(div => div.classList.contains ('selected'))[0]
-      console.log(result);//选中的标签
+      const result = divs.filter(div => div.classList.contains ('selected'))[0]//选中的标签
       const {width} = result.getBoundingClientRect()
       indicator.value.style.width = width + 'px'
       const {left:left1} = container.value.getBoundingClientRect()
@@ -52,14 +51,16 @@ export default {
         throw new Error('Tabs子标签必须是Tab');
       }
     });//这一步使得Tabs子标签只能是Tab
-    const titles = defaults.map((tag) => {
-      return tag.props.title;
-    });//所有的title都在这里了
-   const select = (title:string)=>{
-      context.emit('update:selected',title)
+    const tabs = defaults.map((tag) => {
+      return { title: tag.props.title, disabled: tag.props.disabled !== undefined };
+    });//所有的title都在这里了,如果加上disabled，则disabled不等于undefined,就会出现
+    console.log(tabs)
+   const select = (tab: any)=>{
+      if(tab.disabled) return;
+      context.emit('update:selected',tab.title)
    }
 
-    return {defaults, titles,select,navItems,indicator,container};
+    return {defaults, tabs,select,navItems,indicator,container};
   }
 };
 </script>
@@ -93,6 +94,11 @@ $border-color: #d9d9d9;
       bottom: -1px;
       width: 100px;
       transition:all 250ms ;
+    }
+
+    .disabled {
+      color: #999;
+      cursor:not-allowed;;
     }
   }
   &-content {
