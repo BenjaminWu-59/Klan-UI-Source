@@ -3,99 +3,65 @@
   <div class="demo">
     <h2>常规用法</h2>
     <div class="demo-component">
-      <Button>你好</Button>
-      <Button theme="button">你好</Button>
-      <Button theme="link">你好</Button>
-      <Button theme="text">你好</Button>
+      <Button1demo />
     </div>
     <div class="demo-actions">
       <Button>查看代码</Button>
     </div>
     <div class="demo-code">
-      <pre>xxxxxxxxxxx</pre>
+      <pre class="language-html" v-html="Prism.highlight(Button1demo.__sourceCode, Prism.languages.html, 'html')" />
     </div>
   </div>
 
   <div class="demo">
     <h2>支持size属性</h2>
     <div class="demo-component">
-      <div>
-        <Button size="big">大大大</Button>
-        <Button>普普通通</Button>
-        <Button size="small">小小小</Button>
-      </div>
-      <div>
-        <Button theme="link" size="big">大大大</Button>
-        <Button theme="link">普普通通</Button>
-        <Button size="small" theme="link">小小小</Button>
-      </div>
-      <div>
-        <Button size="big" theme="text">大大大</Button>
-        <Button theme="text">普普通通</Button>
-        <Button size="small" theme="text">小小小</Button>
-      </div>
+     <Button2demo/>
     </div>
     <div class="demo-actions">
       <Button>查看代码</Button>
     </div>
     <div class="demo-code">
-      <pre>xxxxxxxxxxx</pre>
+      <pre class="language-html" v-html="Prism.highlight(Button2demo.__sourceCode, Prism.languages.html, 'html')" />
     </div>
   </div>
 
   <div class="demo">
     <h2>支持level属性</h2>
     <div class="demo-component">
-      <div>
-        <Button level="main">主要按钮</Button>
-        <Button>普通按钮</Button>
-        <Button level="danger">危险按钮</Button>
-      </div>
-      <div>
-        <Button theme="link" level="main">主要链接按钮</Button>
-        <Button theme="link">普通链接按钮</Button>
-        <Button theme="link" level="danger">危险链接按钮</Button>
-      </div>
-      <div>
-        <Button theme="text" level="main">主要文字按钮</Button>
-        <Button theme="text">普通文字按钮</Button>
-        <Button theme="text" level="danger">危险文字按钮</Button>
-      </div>
+     <Button3demo/>
     </div>
     <div class="demo-actions">
       <Button>查看代码</Button>
     </div>
     <div class="demo-code">
-      <pre>xxxxxxxxxxx</pre>
+      <pre class="language-html" v-html="Prism.highlight(Button3demo.__sourceCode, Prism.languages.html, 'html')" />
     </div>
   </div>
 
   <div class="demo">
     <h2>支持disabled属性</h2>
     <div class="demo-component">
-      <Button disabled>禁用按钮</Button>
-      <Button theme="link" disabled>禁用链接按钮</Button>
-      <Button theme="text" disabled>禁用按钮</Button>
+      <Button4demo/>
     </div>
     <div class="demo-actions">
       <Button>查看代码</Button>
     </div>
     <div class="demo-code">
-      <pre>xxxxxxxxxxx</pre>
+      <pre class="language-html" v-html="Prism.highlight(Button4demo.__sourceCode, Prism.languages.html, 'html')" />
     </div>
   </div>
 
   <div class="demo">
     <h2>支持加载样式</h2>
     <div class="demo-component">
-      <Button loading>加载中</Button>
-      <Button>加载完毕</Button>
+      <Button5demo/>
     </div>
     <div class="demo-actions">
       <Button>查看代码</Button>
     </div>
     <div class="demo-code">
-      <pre>xxxxxxxxxxx</pre>
+      <pre class="language-html" v-html="Prism.highlight(Button5demo.__sourceCode, Prism.languages.html, 'html')" />
     </div>
   </div>
 
@@ -103,10 +69,38 @@
 </template>
 
 <script lang="ts">
-import Button from '../lib/Button.vue';
+import Button from '../../lib/Button.vue';
+import Button1demo from './Button1demo.vue';
+import Button2demo from './Button2demo.vue';
+import Button3demo from './Button3demo.vue';
+import Button4demo from './Button4demo.vue';
+import Button5demo from './Button5demo.vue';
+import  'prismjs'
+import 'prismjs/themes/prism.css'
+const Prism = (window as any).Prism
+
+console.log(Button2demo.__sourceCode);
+
 export default {
   name: 'ButtonDemo',
-  components:{Button},
+  components:{
+    Button,
+    Button1demo,
+    Button2demo,
+    Button3demo,
+    Button4demo,
+    Button5demo
+  },
+  setup(){
+    return{
+      Button1demo,
+      Button2demo,
+      Button3demo,
+      Button4demo,
+      Button5demo,
+      Prism
+    }
+  }
 };
 </script>
 

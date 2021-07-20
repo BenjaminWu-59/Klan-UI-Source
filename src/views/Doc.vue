@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <Topnav class="nav" toggle-menu-button-visible="true"/>
+    <Topnav class="nav" :toggle-menu-button-visible="true"/>
     <div class="content">
       <transition name="slide">
         <aside v-if="menuVisible">
