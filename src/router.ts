@@ -8,6 +8,7 @@ import ListDemo from './components/List/ListDemo.vue';
 import {createRouter, createWebHashHistory} from 'vue-router';
 import Markdown from './components/Markdown.vue';
 import {h} from 'vue';
+import SlideDemo from './components/SlideDemo.vue';
 
 
 
@@ -30,6 +31,7 @@ export const router = createRouter({
                 {path: 'button', 'component': ButtonDemo},
                 {path: 'dialog', 'component': DialogDemo},
                 {path: 'tabs', 'component': TabsDemo},
+                {path: 'slide', 'component': SlideDemo},
                 {path: 'list', 'component': ListDemo},
             ]
         }
