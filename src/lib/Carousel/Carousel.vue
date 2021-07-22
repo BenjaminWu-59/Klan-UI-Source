@@ -11,8 +11,8 @@
        :dotBgColor="dotBgColor"
        @dotClick="dotClick"
       />
-      <Director class="prev" dir="prev" @dirClick="dirClick"/>
-      <Director class="next" dir="next" @dirClick="dirClick"/>
+      <Director v-if="hasDirector === true"   class="prev" dir="prev" @dirClick="dirClick"/>
+      <Director v-if="hasDirector === true"   class="next" dir="next" @dirClick="dirClick"/>
       <slot></slot>
     </div>
   </div>
@@ -48,11 +48,11 @@ export default {
     },//开始出现的item是谁
     hasDot:{
       type:Boolean,
-      default:true
+      default:false
     },//是否显示圆点
     hasDirector:{
       type:Boolean,
-      default:true
+      default:false
     },//是否显示指向标
     dotBgColor:String // 圆点背景颜色
   },
@@ -116,10 +116,10 @@ export default {
     });
     onBeforeUnmount(()=>{
       _clearIntervalFn()
-    })
+    })//销毁之前清除
 
    function _clearIntervalFn(){
-     clearInterval(t) //销毁之前清除
+     clearInterval(t)
      t = null
    }//清除掉 t 的setInterval执行
 

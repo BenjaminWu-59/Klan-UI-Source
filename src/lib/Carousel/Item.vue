@@ -42,7 +42,8 @@ export default {
 <style lang="scss" scoped>
 .car-item{
   position:absolute;
-  background: #bfdbd7;
+  background: #b1cddb;
+  color:darken(#b1cddb,40%);
   top: 0;
   left: 0;
   bottom: 0;

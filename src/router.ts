@@ -8,7 +8,7 @@ import ListDemo from './components/List/ListDemo.vue';
 import {createRouter, createWebHashHistory} from 'vue-router';
 import Markdown from './components/Markdown.vue';
 import {h} from 'vue';
-import SlideDemo from './components/SlideDemo.vue';
+import SlideDemo from './components/CarouselDemo.vue';
 
 
 

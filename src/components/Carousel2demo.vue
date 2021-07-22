@@ -1,12 +1,13 @@
+<demo>
+支持hasDot属性
+</demo>
+
 <template>
-  <h1>slider示例</h1>
   <div class="container">
     <Carousel
         :autoPlay="true"
-        :duration="3000"
         :initial="0"
         :hasDot="true"
-        :hasDirector="true"
     >
       <carItem v-for="(item,index) in carData" :key="index">
         {{ item }}
@@ -36,7 +37,7 @@ export default {
 .container {
   width: 300px;
   height: 150px;
-  margin: 150px auto;
+  margin: 50px auto;
   overflow: hidden;
 }
 </style>
