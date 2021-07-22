@@ -1,5 +1,8 @@
 <template>
-  <div class="carousel">
+  <div class="carousel"
+       @mouseenter="mouseEnter"
+       @mouseleave="mouseLeave"
+  >
     <div class="inner">
       <CarDot
        :hasDot="hasDot"
@@ -58,7 +61,7 @@ export default {
       itemLen:0
     })
 
-    let t =null //自动轮播时间
+    let t = null //自动轮播时间
 
     const autoPlay = ()=>{
        if(props.autoPlay){
@@ -88,7 +91,15 @@ export default {
 
     const dotClick  = (index)=>{
       state.currentIndex = index
-    }
+    }//点击切换页面事件
+
+    const mouseEnter = ()=>{
+      _clearIntervalFn()
+    }//鼠标进入则不执行自动轮播
+
+    const mouseLeave = () =>{
+      autoPlay()
+    }//鼠标离开继续执行自动轮播
 
     onMounted(()=>{
       //@ts-ignore
@@ -96,14 +107,20 @@ export default {
       autoPlay() //渲染时启动
     });
     onBeforeUnmount(()=>{
-      clearInterval(t) //销毁之前清除
-      t = null
+      _clearIntervalFn()
     })
+
+   function _clearIntervalFn(){
+     clearInterval(t) //销毁之前清除
+     t = null
+   }//清除掉 t 的setInterval执行
 
 
     return{
      ...toRefs(state),
-      dotClick
+      dotClick,
+      mouseEnter,
+      mouseLeave
     }
   }
 };
