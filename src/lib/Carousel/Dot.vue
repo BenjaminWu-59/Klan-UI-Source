@@ -24,7 +24,7 @@ export default {
     },//是否有圆点
     dotBgColor: {
       type: String,
-      default: '#ff5000'
+      default: '#6b8080'
     }
   },
   setup(props,ctx) {

@@ -11,6 +11,8 @@
        :dotBgColor="dotBgColor"
        @dotClick="dotClick"
       />
+      <Director class="prev" dir="prev" @dirClick="dirClick"/>
+      <Director class="next" dir="next" @dirClick="dirClick"/>
       <slot></slot>
     </div>
   </div>
@@ -26,10 +28,11 @@ import {
 } from 'vue'
 
 import CarDot from './Dot.vue'
+import Director from './Director.vue';
 
 export default {
   name: 'Carousel',
-  components:{ CarDot},
+  components:{ CarDot,Director},
   props: {
     autoPlay:{
       type:Boolean,
@@ -93,6 +96,11 @@ export default {
       state.currentIndex = index
     }//点击切换页面事件
 
+    const dirClick = (dir) =>{
+        setIndex(dir)  //决定跳转方向传入即可
+    }//左右按钮，点击移动
+
+
     const mouseEnter = ()=>{
       _clearIntervalFn()
     }//鼠标进入则不执行自动轮播
@@ -120,7 +128,8 @@ export default {
      ...toRefs(state),
       dotClick,
       mouseEnter,
-      mouseLeave
+      mouseLeave,
+      dirClick
     }
   }
 };
@@ -130,13 +139,15 @@ export default {
 .carousel {
   height: 100%;
   width: 100%;
-  overflow: hidden;
+
 }
 
 .inner {
   position: relative;
   height: 100%;
   width: 100%;
+  display: flex;
   overflow: hidden;
 }
+
 </style>

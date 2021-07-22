@@ -42,7 +42,7 @@ export default {
 <style lang="scss" scoped>
 .car-item{
   position:absolute;
-  background: #b1d9d3;
+  background: #bfdbd7;
   top: 0;
   left: 0;
   bottom: 0;

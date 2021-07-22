@@ -3,7 +3,7 @@
   <div class="container">
     <Carousel
         :autoPlay="true"
-        :duration="2500"
+        :duration="3000"
         :initial="0"
         :hasDot="true"
         :hasDirector="true"
@@ -24,7 +24,7 @@ export default {
     Carousel, carItem
   },
   setup() {
-    const carData = ['1', '2', '3', '4', '5'];
+    const carData = ['1', '2', '3', '4'];
     return {
       carData
     };
