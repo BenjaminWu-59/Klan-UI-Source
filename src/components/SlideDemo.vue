@@ -1,19 +1,17 @@
 <template>
 <h1>slider示例</h1>
-  <div class="waitao">
   <div class="container">
     <Carousel
       :autoPlay="true"
       :duration="2500"
-      :initial="1"
+      :initial="0"
       :hasDot="true"
       :hasDirector="true"
     >
        <carItem v-for="(item,index) in carData" :key="index">
-         <div  class="img">{{item}}</div>
+                {{item}}
        </carItem>
     </Carousel>
-  </div>
   </div>
 </template>
 
@@ -34,15 +32,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.img{
- background: #97b7d0;
-  color: darken( #97b7d0,40%);
-  width:400px;
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .container{
   width: 400px;
   height: 250px;

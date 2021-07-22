@@ -1,6 +1,13 @@
 <template>
   <div class="carousel">
     <div class="inner">
+      <CarDot
+       :hasDot="hasDot"
+       :itemLen="itemLen"
+       :currentIndex="currentIndex"
+       :dotBgColor="dotBgColor"
+       @dotClick="dotClick"
+      />
       <slot></slot>
     </div>
   </div>
@@ -15,8 +22,11 @@ import {
   getCurrentInstance
 } from 'vue'
 
+import CarDot from './Dot.vue'
+
 export default {
   name: 'Carousel',
+  components:{ CarDot},
   props: {
     autoPlay:{
       type:Boolean,
@@ -24,7 +34,7 @@ export default {
     }, //是否自动轮播
     duration:{
       type:Number,
-      default: 3000
+      default: 100000000
     },//轮播时间
     initial:{
       type:Number,
@@ -33,11 +43,12 @@ export default {
     hasDot:{
       type:Boolean,
       default:true
-    },//是否显示圆角
+    },//是否显示圆点
     hasDirector:{
       type:Boolean,
       default:true
-    }//是否显示指向标
+    },//是否显示指向标
+    dotBgColor:String // 圆点背景颜色
   },
   setup(props){
     const instance = getCurrentInstance()
@@ -75,6 +86,10 @@ export default {
       }
     }//决定跳转方向
 
+    const dotClick  = (index)=>{
+      state.currentIndex = index
+    }
+
     onMounted(()=>{
       //@ts-ignore
       state.itemLen = instance.slots.default()[0].children.length //拿到实例的slots里面数组的长度，即item有几个
@@ -87,7 +102,8 @@ export default {
 
 
     return{
-     ...toRefs(state)
+     ...toRefs(state),
+      dotClick
     }
   }
 };
@@ -97,6 +113,7 @@ export default {
 .carousel {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 .inner {

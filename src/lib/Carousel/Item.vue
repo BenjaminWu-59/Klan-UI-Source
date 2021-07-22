@@ -42,15 +42,19 @@ export default {
 <style lang="scss" scoped>
 .car-item{
   position:absolute;
-  height: 100%;
-  width: 100%;
-  top:0;
+  background: #b1d9d3;
+  top: 0;
   left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .v-enter-active,
 .v-leave-active{
-  transition:all .3s linear;
+  transition:all 250ms linear;
 }
 
 .v-enter-active{
