@@ -52,7 +52,7 @@ export default {
     const autoPlay = ()=>{
        if(props.autoPlay){
          t = setInterval(()=>{
-           setIndex('prev')
+            setIndex('next')
          },props.duration)
        }
     }//轮播开始
@@ -103,5 +103,6 @@ export default {
   position: relative;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 </style>

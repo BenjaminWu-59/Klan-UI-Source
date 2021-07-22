@@ -10,7 +10,7 @@
       :hasDirector="true"
     >
        <carItem v-for="(item,index) in carData" :key="index">
-         <div id="Img" class="img">{{item}}</div>
+         <div  class="img">{{item}}</div>
        </carItem>
     </Carousel>
   </div>

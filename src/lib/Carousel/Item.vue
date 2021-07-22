@@ -1,7 +1,10 @@
 <template>
-<div class="car-item" v-if="selfIndex === currentIndex">
-  <slot></slot>
-</div>
+  <transition>
+    <div class="car-item" v-if="selfIndex === currentIndex">
+      <slot></slot>
+    </div>
+  </transition>
+
 </template>
 
 <script lang="ts">
@@ -37,9 +40,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#img{
-  width:100%
-}
 .car-item{
   position:absolute;
   height: 100%;
@@ -47,4 +47,27 @@ export default {
   top:0;
   left: 0;
 }
+
+.v-enter-active,
+.v-leave-active{
+  transition:all .3s linear;
+}
+
+.v-enter-active{
+  transform: translateX(100%);
+}
+
+.v-enter-to{
+  transform: translateX(0);
+}
+
+.v-leave-active{
+  transform: translateX(0);
+}
+
+.v-leave-to{
+  transform: translateX(-100%);
+}
+
+
 </style>
