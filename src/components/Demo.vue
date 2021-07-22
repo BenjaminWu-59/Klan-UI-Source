@@ -46,7 +46,9 @@ $border-color: #d9d9d9;
   border: 1px solid $border-color;
   border-radius: 10px;
   margin: 16px 0 32px;
-
+  @media (min-width: 500px) {
+    width: 500px;
+  }
   > h2 {
     font-size: 20px;
     padding: 8px 16px;
@@ -74,7 +76,7 @@ $border-color: #d9d9d9;
   }
 }
 .demo:hover{
-  box-shadow: 0 0 10px 0 rgb(232 237 250 / 70%),
+  box-shadow: 0 0 10px 0 rgb(232 237 250 / 80%),
   0 5px 7px 0 rgb(232 237 250 / 60%);
 }
 </style>

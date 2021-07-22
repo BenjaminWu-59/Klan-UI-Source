@@ -94,7 +94,7 @@ export default {
   > main {
     flex-grow: 1;
     right: 0;
-    padding: 30px 20px 20px 30px;
+    padding: 20px;
   }
 }
 
