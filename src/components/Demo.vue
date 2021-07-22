@@ -46,8 +46,8 @@ $border-color: #d9d9d9;
   border: 1px solid $border-color;
   border-radius: 10px;
   margin: 16px 0 32px;
-  @media (min-width: 500px) {
-    width: 500px;
+  @media (min-width: 800px) {
+    width: 600px;
   }
   > h2 {
     font-size: 20px;
