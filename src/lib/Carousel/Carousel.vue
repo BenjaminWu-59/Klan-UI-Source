@@ -7,14 +7,21 @@
 </template>
 
 <script lang="ts">
-import {reactive,toRefs} from 'vue'
+import {
+  reactive,
+  toRefs,
+  onMounted, //渲染时
+  onBeforeUnmount,//销毁之前
+  getCurrentInstance
+} from 'vue'
+
 export default {
   name: 'Carousel',
   props: {
     autoPlay:{
       type:Boolean,
       default:true
-    }, //自动轮播
+    }, //是否自动轮播
     duration:{
       type:Number,
       default: 3000
@@ -33,9 +40,52 @@ export default {
     }//是否显示指向标
   },
   setup(props){
+    const instance = getCurrentInstance()
+
     const state = reactive({
-      currentIndex:props.initial
+      currentIndex:props.initial,
+      itemLen:0
     })
+
+    let t =null //自动轮播时间
+
+    const autoPlay = ()=>{
+       if(props.autoPlay){
+         t = setInterval(()=>{
+           setIndex('prev')
+         },props.duration)
+       }
+    }//轮播开始
+
+    const setIndex = (dir) =>{
+      switch(dir){
+        case 'next': //下一个
+          state.currentIndex+=1
+          if(state.currentIndex === state.itemLen){
+              state.currentIndex = 0  //假设item有5个（0~4），则跳到index5时，要转换成0
+          }//当前的index与item总长度相等，就直接跳回第一个item，即index为0
+          break;
+        case 'prev':
+          console.log(state.currentIndex);
+          state.currentIndex -=1
+          if(state.currentIndex === -1){
+             state.currentIndex = state.itemLen -1 // 数组长度永远比index多1，跳到最后一个就是length-1
+          }
+          break;
+      }
+    }//决定跳转方向
+
+    onMounted(()=>{
+      //@ts-ignore
+      state.itemLen = instance.slots.default()[0].children.length //拿到实例的slots里面数组的长度，即item有几个
+      autoPlay() //渲染时启动
+    });
+    onBeforeUnmount(()=>{
+      clearInterval(t) //销毁之前清除
+      t = null
+    })
+
+
     return{
      ...toRefs(state)
     }

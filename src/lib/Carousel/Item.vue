@@ -5,7 +5,12 @@
 </template>
 
 <script lang="ts">
-import {getCurrentInstance,reactive,toRefs} from 'vue';
+import {
+  getCurrentInstance,
+  reactive,
+  toRefs,
+  watch
+} from 'vue';
 
 export default {
   name: 'CarItem',
@@ -13,9 +18,17 @@ export default {
     const instance = getCurrentInstance()//获取当前实例
     const state = reactive({
       selfIndex:instance.vnode.key, //拿到当前实例的index（侬是第几个？）
+      //@ts-ignore
       currentIndex: instance.parent.ctx.currentIndex //从当前实例的父节点拿到当前节点的index
     })
-    console.log(instance);
+
+    watch(()=>{
+      //@ts-ignore
+       return instance.parent.ctx.currentIndex
+    },(value)=>{
+      state.currentIndex = value
+    })//监听页面的Index变化，将变化的index值赋予currentIndex
+
     return{
       ...toRefs(state)
     }

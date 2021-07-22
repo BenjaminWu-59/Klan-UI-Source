@@ -4,8 +4,8 @@
   <div class="container">
     <Carousel
       :autoPlay="true"
-      :duration="3000"
-      :initial="3"
+      :duration="2500"
+      :initial="1"
       :hasDot="true"
       :hasDirector="true"
     >
@@ -35,16 +35,17 @@ export default {
 
 <style lang="scss" scoped>
 .img{
- background: #0d92ff;
-  width:520px;
-  height: 280px;
+ background: #97b7d0;
+  color: darken( #97b7d0,40%);
+  width:400px;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .container{
-  width: 520px;
-  height: 280px;
+  width: 400px;
+  height: 250px;
   margin: 150px auto;
   overflow: hidden;
 }
