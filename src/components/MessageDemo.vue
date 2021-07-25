@@ -1,7 +1,15 @@
 <template>
 <h1>Message示例</h1>
-  <Button size="big" @click="onClick">提示</Button>
-  <Button size="big" @click="onClick2">提示2</Button>
+  <Button  @click="NormalClick">普通提示</Button>
+  <br />
+  <br />
+  <Button  @click="SuccessClick">成功提示</Button>
+  <br />
+  <br />
+  <Button  @click="WarningClick">警告提示</Button>
+  <br />
+  <br />
+  <Button  @click="DangerClick">危险提示</Button>
 </template>
 
 <script lang="ts">
@@ -11,13 +19,20 @@ export default {
   name: 'MessageDemo',
   components:{Button},
   setup(){
-      const onClick = () =>{
+      const NormalClick = () =>{
         Message.info('this is a message')
       }
-      const onClick2 =()=>{
+      const SuccessClick =()=>{
         Message.success('this is a message')
       }
-      return{onClick,onClick2}
+      const WarningClick = ()=>{
+        Message.warning('this is a message')
+      }
+      const DangerClick = ()=>{
+      Message.danger('this is a message')
+    }
+
+      return{NormalClick,SuccessClick,WarningClick,DangerClick}
   }
 };
 </script>

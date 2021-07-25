@@ -60,6 +60,10 @@ export default {
          SvgDom.value.style.color = ' #0d92ff'
       }else if(SvgSource === icon.value.success){
          SvgDom.value.style.color = ' #2ade70'
+      }else if(SvgSource === icon.value.warning){
+        SvgDom.value.style.color = ' #f1d51e'
+      }else if(SvgSource === icon.value.danger){
+        SvgDom.value.style.color = ' #e9183e'
       }
     });//调控icon的颜色问题,巨特么恶心
 
@@ -75,13 +79,13 @@ export default {
 <style lang="scss">
 $warning: #e6a23c;
 $warning-light: #faecd8;
-$warning-lighter: #fdf6ec;
+$warning-lighter: #f1d51e;
 
 $danger: #f0506e;
 $danger-lighter: rgb(252 222 228);
 $danger-light: rgb(247 192 198);
 $danger-hover: #ee395b;
-$danger-active: #ec2147;
+$danger-active: #e9183e;
 
 .pure-message {
   max-width: 350px;
