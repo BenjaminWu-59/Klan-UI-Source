@@ -2,14 +2,20 @@
   <div class="topnav">
     <router-link to="/" class="logo">
       <svg class="icon">
-        <use xlink:href="#icon-ningmeng"></use>
+        <use xlink:href="#icon-gear"></use>
       </svg>
     </router-link>
     <ul class="menu">
       <li>
         <router-link to="/">主页</router-link>
       </li>
-      <li>其他</li>
+      <li>
+        <a href="https://github.com">
+          <svg class="icon">
+            <use xlink:href="#icon-github"></use>
+          </svg>
+        </a>
+      </li>
     </ul>
     <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
       <use xlink:href="#icon-menu"></use>
@@ -18,30 +24,29 @@
 </template>
 
 <script lang="ts">
-import {inject,Ref} from 'vue';
+import {inject, Ref} from 'vue';
 
 export default {
-  props:{
-    toggleMenuButtonVisible:{
-      type:Boolean,
-      default:false
+  props: {
+    toggleMenuButtonVisible: {
+      type: Boolean,
+      default: false
     }
   },
-  setup(){
-    const menuVisible = inject<Ref<boolean>>('menuVisible') //get，，获取xxx的值
-    const toggleMenu = ()=>{
-      menuVisible.value = !menuVisible.value
-    }
-    return {toggleMenu}
+  setup() {
+    const menuVisible = inject<Ref<boolean>>('menuVisible'); //get，，获取xxx的值
+    const toggleMenu = () => {
+      menuVisible.value = !menuVisible.value;
+    };
+    return {toggleMenu};
   }
 };
 </script>
 
 <style lang="scss" scoped>
-$color: #007974;
 .topnav {
-  color:$color;
-  background: #ffff;
+  color: #ffffff;
+  background: #24292a;
   display: flex;
   padding: 16px;
   box-shadow: 0 0 5px 2px #e2e0e0;
@@ -52,26 +57,51 @@ $color: #007974;
   z-index: 20;
   justify-content: center;
   align-items: center;
+
   > .logo {
     font-weight: bold;
     max-width: 6em;
     margin-right: auto;
-    > svg{
-      width: 30px;
-      height: 30px;
+
+    > svg {
+      width: 25px;
+      height: 25px;
+
+      &:hover {
+        animation: changeRight 1s linear infinite;
+      }
+
+      @-webkit-keyframes changeRight {
+
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+
+        50% {
+          -webkit-transform: rotate(180deg);
+        }
+
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
     }
+
     &:hover {
       cursor: pointer;
     }
   }
+
   > .menu {
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
+
     > li {
-      margin: 0 1em;
+      margin: 0 0.8em;
     }
   }
+
   > .toggleAside {
     display: none;
     width: 24px;
@@ -81,11 +111,25 @@ $color: #007974;
     top: 50%;
     transform: translateY(-50%);
   }
-  @media(max-width: 500px){
-    >.menu{display: none}
-    >.logo{margin:0 auto}
-    >.toggleAside{display: inline-block}
-  }
 
+  @media(max-width: 500px) {
+    > .menu {
+      display: none
+    }
+    > .logo {
+      margin: 0 auto
+    }
+    > .toggleAside {
+      display: inline-block
+    }
+  }
+  > a{
+    display: inline-block;
+  }
 }
+.icon{
+  width: 25px;
+  height: 25px;
+}
+
 </style>
