@@ -1,5 +1,5 @@
 <demo>
-支持hasDirector属性
+支持hasDot属性
 </demo>
 
 <template>
@@ -7,7 +7,7 @@
     <Carousel
         :autoPlay="true"
         :initial="0"
-        :hasDirector="true"
+        :hasDot="true"
     >
       <carItem v-for="(item,index) in carData" :key="index">
         {{ item }}
@@ -17,8 +17,8 @@
 </template>
 
 <script lang="ts">
-import Carousel from '../lib/Carousel/Carousel.vue';
-import carItem from '../lib/Carousel/Item.vue';
+import Carousel from '../../lib/Carousel/Carousel.vue';
+import carItem from '../../lib/Carousel/Item.vue';
 
 export default {
   components: {

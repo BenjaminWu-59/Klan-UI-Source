@@ -36,6 +36,9 @@
             <li>
               <router-link to="/doc/list">List 组件</router-link>
             </li>
+            <li>
+              <router-link to="/doc/message">Message 组件</router-link>
+            </li>
           </ol>
         </aside>
       </transition>

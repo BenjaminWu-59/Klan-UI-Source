@@ -17,8 +17,8 @@
 </template>
 
 <script lang="ts">
-import Carousel from '../lib/Carousel/Carousel.vue';
-import carItem from '../lib/Carousel/Item.vue';
+import Carousel from '../../lib/Carousel/Carousel.vue';
+import carItem from '../../lib/Carousel/Item.vue';
 
 export default {
   components: {

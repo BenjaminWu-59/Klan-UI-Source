@@ -8,7 +8,8 @@ import ListDemo from './components/List/ListDemo.vue';
 import {createRouter, createWebHashHistory} from 'vue-router';
 import Markdown from './components/Markdown.vue';
 import {h} from 'vue';
-import SlideDemo from './components/CarouselDemo.vue';
+import SlideDemo from './components/Carousel/CarouselDemo.vue';
+import MessageDemo from './components/MessageDemo.vue';
 
 
 
@@ -33,6 +34,7 @@ export const router = createRouter({
                 {path: 'tabs', 'component': TabsDemo},
                 {path: 'slide', 'component': SlideDemo},
                 {path: 'list', 'component': ListDemo},
+                {path: 'message', 'component': MessageDemo},
             ]
         }
     ]

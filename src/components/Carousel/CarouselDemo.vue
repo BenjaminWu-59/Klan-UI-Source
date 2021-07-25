@@ -6,9 +6,9 @@
 </template>
 
 <script lang="ts">
-import Carousel from '../lib/Carousel/Carousel.vue';
-import carItem from '../lib/Carousel/Item.vue';
-import Demo from './Demo.vue';
+import Carousel from '../../lib/Carousel/Carousel.vue';
+import carItem from '../../lib/Carousel/Item.vue';
+import Demo from '../Demo.vue';
 import Carousel1Demo from './Carousel1Demo.vue';
 import Carousel2demo from './Carousel2demo.vue';
 import Carousel3demo from './Carousel3demo.vue';
