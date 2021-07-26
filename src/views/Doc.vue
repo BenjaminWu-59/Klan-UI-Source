@@ -119,13 +119,15 @@ aside {
 
   > ol {
     > li {
+      padding: 8px 0;
       > a{
         display: block;
         padding:4px 24px;
         text-decoration: none;
       }
       .router-link-active{
-        background:  rgba(200, 200, 200,0.8);
+        background: rgb(36, 36, 36);
+        color: white;
       }
     }
   }

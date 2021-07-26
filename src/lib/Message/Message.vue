@@ -3,7 +3,7 @@
       :id="id"
       class="pure-message"
       :class="{ [`pure-message-${type}`]: type }"
-      :style="custonStyle"
+      :style="customStyle"
   >
     <div class="info">
       <svg viewBox="0 0 512 512" class="icon" ref="SvgDom">
@@ -48,7 +48,7 @@ export default {
 
     const SvgDom = ref(null)
 
-    const custonStyle = computed(() => {
+    const customStyle = computed(() => {
       return {
         top: `${props.offset}px`,
       };
@@ -59,9 +59,9 @@ export default {
       if(SvgSource === icon.value.info){
          SvgDom.value.style.color = ' #0d92ff'
       }else if(SvgSource === icon.value.success){
-         SvgDom.value.style.color = ' #2ade70'
+         SvgDom.value.style.color = ' #30c403'
       }else if(SvgSource === icon.value.warning){
-        SvgDom.value.style.color = ' #f1d51e'
+        SvgDom.value.style.color = '  #f1ba12'
       }else if(SvgSource === icon.value.danger){
         SvgDom.value.style.color = ' #e9183e'
       }
@@ -69,7 +69,7 @@ export default {
 
     return {
       icon,
-      custonStyle,
+      customStyle,
       SvgDom
     };
   },
@@ -77,16 +77,6 @@ export default {
 </script>
 
 <style lang="scss">
-$warning: #e6a23c;
-$warning-light: #faecd8;
-$warning-lighter: #f1d51e;
-
-$danger: #f0506e;
-$danger-lighter: rgb(252 222 228);
-$danger-light: rgb(247 192 198);
-$danger-hover: #ee395b;
-$danger-active: #e9183e;
-
 .pure-message {
   max-width: 350px;
   position: fixed;
