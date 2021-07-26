@@ -6,8 +6,8 @@
       </svg>
     </router-link>
     <ul class="menu">
-      <li>
-        <router-link to="/">主页</router-link>
+      <li class="font">
+        <router-link to="/doc/switch">组件</router-link>
       </li>
       <li>
         <a href="https://github.com">
@@ -44,9 +44,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$color: #515151;
 .topnav {
-  color: #ffffff;
-  background: #24292a;
+  background: #fafafa;
   display: flex;
   padding: 16px;
   box-shadow: 0 0 5px 2px #e2e0e0;
@@ -63,7 +63,7 @@ export default {
     max-width: 6em;
     margin-right: auto;
 
-    > svg {
+    > .icon{
       width: 25px;
       height: 25px;
 
@@ -86,6 +86,12 @@ export default {
         }
       }
     }
+    .icon:last-of-type{
+      fill:$color
+    }
+    .icon:last-of-type:hover{
+      fill:black;
+    }
 
     &:hover {
       cursor: pointer;
@@ -94,8 +100,16 @@ export default {
 
   > .menu {
     display: flex;
+    align-items: center ;
     white-space: nowrap;
     flex-wrap: nowrap;
+    .font{
+      color:$color;
+      font-weight: bold;
+    }
+    .font:hover{
+      color: #000;
+    }
 
     > li {
       margin: 0 0.8em;
@@ -130,6 +144,12 @@ export default {
 .icon{
   width: 25px;
   height: 25px;
+}
+.icon:last-of-type{
+  fill:$color
+}
+.icon:last-of-type:hover{
+  fill:black;
 }
 
 </style>
