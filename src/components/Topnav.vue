@@ -7,6 +7,9 @@
     </router-link>
     <ul class="menu">
       <li class="font">
+        <router-link to="/doc/intro">文档</router-link>
+      </li>
+      <li class="font">
         <router-link to="/doc/switch">组件</router-link>
       </li>
       <li>
@@ -44,7 +47,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$color: #515151;
+$color: #303030;
 .topnav {
   background: #fafafa;
   display: flex;
@@ -105,14 +108,14 @@ $color: #515151;
     flex-wrap: nowrap;
     .font{
       color:$color;
-      font-weight: bold;
+      font-weight:600;
     }
     .font:hover{
       color: #000;
     }
 
     > li {
-      margin: 0 0.8em;
+      margin: 0 0.65em;
     }
   }
 
@@ -151,5 +154,10 @@ $color: #515151;
 .icon:last-of-type:hover{
   fill:black;
 }
-
+.toggleAside:last-of-type{
+  fill:$color
+}
+.toggleAside:last-of-type:hover{
+  fill:black;
+}
 </style>

@@ -125,7 +125,7 @@ aside {
         text-decoration: none;
       }
       .router-link-active{
-        background: #02bcb0;
+        background: #c8c8c8;
       }
     }
   }
