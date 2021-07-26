@@ -101,7 +101,7 @@ $color: #111111;
     }
   }
 
-  @media screen and (max-width: 1023px) {
+  @media(max-width: 1023px) {
     .main {
       top: -50px;
       flex-wrap: wrap;
@@ -126,6 +126,7 @@ $color: #111111;
 
   .BG1 {
     position: absolute;
+    z-index: -1;
     bottom: 0;
   }
 }

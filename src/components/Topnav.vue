@@ -14,7 +14,7 @@
       </li>
       <li>
         <a href="https://github.com">
-          <svg class="icon">
+          <svg class="icon github">
             <use xlink:href="#icon-github"></use>
           </svg>
         </a>
@@ -106,6 +106,7 @@ $color: #303030;
     align-items: center ;
     white-space: nowrap;
     flex-wrap: nowrap;
+
     .font{
       color:$color;
       font-weight:600;
@@ -147,12 +148,6 @@ $color: #303030;
 .icon{
   width: 25px;
   height: 25px;
-}
-.icon:last-of-type{
-  fill:$color
-}
-.icon:last-of-type:hover{
-  fill:black;
 }
 .toggleAside:last-of-type{
   fill:$color
