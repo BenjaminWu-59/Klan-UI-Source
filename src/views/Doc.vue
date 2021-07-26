@@ -19,25 +19,25 @@
           <h2>组件列表</h2>
           <ol>
             <li>
-              <router-link to="/doc/switch">Switch 组件</router-link>
+              <router-link to="/doc/switch">Switch 开关</router-link>
             </li>
             <li>
-              <router-link to="/doc/button">Button 组件</router-link>
+              <router-link to="/doc/button">Button 按钮</router-link>
             </li>
             <li>
-              <router-link to="/doc/dialog">Dialog 组件</router-link>
+              <router-link to="/doc/dialog">Dialog 弹窗</router-link>
             </li>
             <li>
-              <router-link to="/doc/tabs">Tabs 组件</router-link>
+              <router-link to="/doc/tabs">Tabs 导航</router-link>
             </li>
             <li>
-              <router-link to="/doc/slide">Carousel 组件</router-link>
+              <router-link to="/doc/list">List &nbsp列表</router-link>
             </li>
             <li>
-              <router-link to="/doc/list">List 组件</router-link>
+              <router-link to="/doc/slide">Carousel 轮播</router-link>
             </li>
             <li>
-              <router-link to="/doc/message">Message 组件</router-link>
+              <router-link to="/doc/message">Message 消息</router-link>
             </li>
           </ol>
         </aside>
@@ -125,7 +125,7 @@ aside {
         text-decoration: none;
       }
       .router-link-active{
-        background: #c8c8c8;
+        background:  rgba(200, 200, 200,0.8);
       }
     }
   }

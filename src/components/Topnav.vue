@@ -49,7 +49,7 @@ export default {
 <style lang="scss" scoped>
 $color: #303030;
 .topnav {
-  background: #fafafa;
+  background: #ffffff;
   display: flex;
   padding: 16px;
   box-shadow: 0 0 5px 2px #e2e0e0;

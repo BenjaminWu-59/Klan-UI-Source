@@ -103,7 +103,7 @@ $color: #111111;
 
   @media(max-width: 1023px) {
     .main {
-      top: -50px;
+      top: -100px;
       flex-wrap: wrap;
       max-width: 391px;
       margin: 0 auto;
