@@ -1,5 +1,5 @@
 <demo>
-常规用法
+虚拟长列表
 </demo>
 <template>
     <List :data="data" :buffBottom="10"/>

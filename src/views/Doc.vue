@@ -34,6 +34,9 @@
               <router-link to="/doc/list">List &nbsp列表</router-link>
             </li>
             <li>
+              <router-link to="/doc/rate">Rate 评分</router-link>
+            </li>
+            <li>
               <router-link to="/doc/slide">Carousel 轮播</router-link>
             </li>
             <li>

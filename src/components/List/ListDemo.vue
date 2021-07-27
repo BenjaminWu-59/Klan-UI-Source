@@ -1,7 +1,6 @@
 <template>
   <h1>List示例</h1>
   <Demo :components="List1demo"/>
-  <Demo :components="List2demo"/>
 </template>
 
 <script lang="ts">
