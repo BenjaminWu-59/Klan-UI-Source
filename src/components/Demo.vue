@@ -69,6 +69,7 @@ $border-color: #d9d9d9;
     border-top: 1px dashed $border-color;
 
     > pre {
+      border: 1px solid green;
       line-height: 1.4;
       font-family: Consolas, 'Courier New', Courier, monospace;
       margin: 0;

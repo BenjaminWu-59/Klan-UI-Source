@@ -1,17 +1,22 @@
 <template>
 <h1>Rate示例</h1>
-  <Rate></Rate>
+  <Demo :components="Rate1Demo"/>
+  <Demo :components="Rate2Demo"/>
 </template>
 
 <script lang="ts">
-import Rate from '../lib/Rate.vue';
+import Demo from './Demo.vue';
+import Rate1Demo from './Rate1Demo.vue';
+import Rate2Demo from './Rate2Demo.vue';
 export default {
   components:{
-    Rate
+    Demo
+  },
+  setup(){
+    return{
+      Rate1Demo,
+      Rate2Demo
+    }
   }
 };
 </script>
-
-<style lang="scss" scoped>
-
-</style>
