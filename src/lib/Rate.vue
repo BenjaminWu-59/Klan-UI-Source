@@ -1,125 +1,98 @@
 <template>
-<div>rate评分</div>
-<div class="main">
-  <div class="header">默认主题</div>
-  <div class="content">
-    <ol>
-      <li @click="L1" ref="A"></li>
-      <li @click="L2" ref="B"></li>
-      <li @click="L3" ref="C"></li>
-      <li @click="L4" ref="D"></li>
-      <li @click="L5" ref="E"></li>
-    </ol>
+  <div id="app" class="row">
+    <div class="form-group clearfix">
+      <label class="control-label col-md-4">星星数量:{{ }}分</label>
+      <div class="col-md-8">
+        <div class="grade-box">
+          <img v-for="(star,index) in stars" v-bind:src="star.src" v-on:click="rating(index)" alt="星星图片"/>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 </template>
 
 <script lang="ts">
 import {ref} from 'vue';
+import starOffImg from '../assets/starOff.png';
+import starOnImg from '../assets/starOn.png';
 
 export default {
-   setup(){
-     const A = ref()
-     const B = ref()
-     const C = ref()
-     const D = ref()
-     const E = ref()
-     const L1 = ()=>{
-       if(A.value.style.background === ''){
-         A.value.style.background = 'yellow'
-         B.value.style.background = ''
-       }else {
-         A.value.style.background = ''
-         B.value.style.background = ''
-         C.value.style.background = ''
-         D.value.style.background = ''
-         E.value.style.background = ''
-       }
-     }
-     const L2 = ()=>{
-       if(B.value.style.background === ''){
-         B.value.style.background = 'yellow'
-         A.value.style.background = 'yellow'
-         C.value.style.background = ''
-       }else {
-         C.value.style.background = ''
-         D.value.style.background = ''
-         E.value.style.background = ''
-       }
-     }
+  setup() {
+    //制造两个响应数据
+    const stars = ref([
+          {
+            src: starOffImg,
+            active: false
+          }, {
+          src: starOffImg,
+          active: false
+        }, {
+          src: starOffImg,
+          active: false
+        },
+          {
+            src: starOffImg,
+            active: false
+          }, {
+          src: starOffImg,
+          active: false
+        }
+        ])
+    const starNum = ref(0)
+    //制造评分方法
+    const rating = (index)=>{
+      const total = stars.value.length//星星总数
+      const idx = index + 1 //选中的星星是第几个
+      //设置第一次点击
+      if(starNum.value === 0){
+         starNum.value = idx
+        for(let i=0; i<idx; i++){
+          stars.value[i].src = starOnImg
+          stars.value[i].active = true
+        }//点击就会亮， starNum会变成一个第一次点击的值，下面使用它作为参照
+      }else{
+        if(idx === starNum.value){
+          for(let i=index; i<total; i++){
+            stars.value[i].src = starOffImg
+            stars.value[i].active = false
+          }//再点就取消，这里只取消当前项，前面的不会清除~0.0~
+        }
+        if(idx < starNum.value){
+          for(let i=idx; i< starNum.value; i++){
+            stars.value[i].src = starOffImg
+            stars.value[i].active = false
+          }//点击的星级小于现在的最高星级，就把高星级的干掉
+        }
+        if(idx > starNum.value){
+          for(let i=0; i<idx; i++){
+            stars.value[i].src = starOnImg
+            stars.value[i].active = true
+          }//点击的星级大于现在的最高星级，前面
+        }
+      }
 
-     const L3 = ()=>{
-       if(C.value.style.background === ''){
-         C.value.style.background = 'yellow'
-         B.value.style.background = 'yellow'
-         A.value.style.background = 'yellow'
-         D.value.style.background = ''
-       }else {
-         D.value.style.background = ''
-         E.value.style.background = ''
-       }
-     }
+      console.log('当前点击:'+idx);
+      console.log(starNum.value);
+    }
 
-     const L4 = ()=>{
-       if(D.value.style.background === ''){
-         D.value.style.background = 'yellow'
-         C.value.style.background = 'yellow'
-         B.value.style.background = 'yellow'
-         A.value.style.background = 'yellow'
-       }else{
-         E.value.style.background = ''
-       }
-     }
-
-     const L5 = ()=>{
-       if(E.value.style.background === ''){
-         E.value.style.background = 'yellow'
-         D.value.style.background = 'yellow'
-         C.value.style.background = 'yellow'
-         B.value.style.background = 'yellow'
-         A.value.style.background = 'yellow'
-       }
-     }
-
-
-
-     return{
-       A,
-       B,
-       C,
-       D,
-       E,
-       L1,
-       L2,
-       L3,
-       L4,
-       L5
-     }
-   }
+    return{
+      rating,
+      stars,
+      starNum
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 $xxx: #e2c405;
-.main{
-  >.header{
-    display: flex;
-    justify-content: center;
-    color: #707070;
-  }
-  >.content {
-    > ol {
-      display: flex;
-      justify-content: center;
-
-      > li {
-        border: 1px solid black;
-        margin: 3px;
-        border-radius: 50%;
-        width: 15px;
-        height: 15px;
-      }
-    }
+.grade-box{
+  display: flex;
+  justify-content: center;
+  >img{
+    width:30px;
+    height: 30px;
+    margin: 3px;
   }
 }
 </style>
