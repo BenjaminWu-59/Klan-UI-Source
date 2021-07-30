@@ -95,6 +95,10 @@ export default {
 
   > aside {
     flex-shrink: 0;
+    overflow: auto;
+    &::-webkit-scrollbar{
+      width: 0;
+    }
   }
 
   > main {
