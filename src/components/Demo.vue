@@ -9,8 +9,8 @@
       <pre class="language-html" v-html="html"/>
     </div>
 
-    <div class="demo-actions" @mouseover="enter" @mouseleave="leave">
-      <div class="hidden" @click="toggleCode" v-if="codeVisible">
+    <div class="demo-actions" @click="toggleCode" @mouseover="enter" @mouseleave="leave">
+      <div class="hidden"  v-if="codeVisible">
         <svg class="icon">
           <use xlink:href="#icon-sanjiao"></use>
         </svg>
@@ -19,7 +19,7 @@
         </transition>
       </div>
 
-      <div class="view" @click="toggleCode" v-else>
+      <div class="view" v-else>
         <svg class="icon">
           <use xlink:href="#icon-daosanjiao"></use>
         </svg>
@@ -103,7 +103,8 @@ $svgBg: #2893cb;
     border-top: 1px solid $border-color;
     cursor: pointer;
 
-    > .view {
+    > .view,
+    .hidden{
       display: flex;
       justify-content: center;
       align-items: center;
@@ -121,42 +122,16 @@ $svgBg: #2893cb;
         color:$svg ;
       }
     }
-    > .hidden{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-
-      > svg {
-        position: absolute;
-        transition: all 0.4s ease 0s;
-        color: $svg;
-      }
-      p {
-        display: inline-block;
-        font-size: 15px;
-        padding-left: 10px;
-        color: $svg;
-      }
-    }
 
     &:hover {
       background: rgba(249, 250, 252);
 
-      > .view {
+      > .view,
+      .hidden{
         > svg {
           transform: translateX(-45px);
           transition: all 0.4s ease 0s;
           color: $svgBg;
-        }
-        >p{
-          color: $svgBg;
-        }
-      }
-      >.hidden{
-        > svg {
-          transform: translateX(-45px);
-          transition: all 0.4s ease 0s;
         }
         >p{
           color: $svgBg;
