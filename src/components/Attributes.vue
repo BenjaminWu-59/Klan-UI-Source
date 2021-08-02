@@ -39,8 +39,11 @@ export default {
 
 <style lang="scss" scoped>
 .z-attr {
-  width: 100%;
+  max-width: 650px;
   overflow-x: auto;
+  &::-webkit-scrollbar{
+    display: none;
+  }
   h2 {
     font-weight: 400;
     color: #1f2f3d;
