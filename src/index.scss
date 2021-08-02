@@ -44,3 +44,14 @@ body {
 .slide-leave-to {
   transform: translateX(-285px);
 } // aside滑动
+
+.codeButtonSlide-enter-active,
+.codeButtonSlide-leave-active {
+  transition: all 0.3s linear;
+  opacity: 1;
+}
+.codeButtonSlide-enter-from,
+.codeButtonSlide-leave-to {
+  transform: translateX(50px);
+  opacity: 0;
+} // 代码块按钮滑动

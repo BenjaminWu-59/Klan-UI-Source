@@ -1,61 +1,96 @@
 <template>
   <div class="demo">
-    <h2>{{components.__sourceCodeTitle}}</h2>
+    <h2>{{ components.__sourceCodeTitle }}</h2>
     <div class="demo-component">
       <component :is="components"/>
     </div>
 
     <div :class="'demo-code' + [codeVisible ? ' code-show ' : ' code-hidden ']">
-      <pre class="language-html" v-html="html" />
+      <pre class="language-html" v-html="html"/>
     </div>
 
-    <div class="demo-actions">
-      <div @click="toggleCode" v-if="codeVisible">隐藏代码</div>
-      <div @click="toggleCode" v-else>查看代码</div>
+    <div class="demo-actions" @mouseover="enter" @mouseleave="leave">
+      <div class="hidden" @click="toggleCode" v-if="codeVisible">
+        <svg class="icon">
+          <use xlink:href="#icon-sanjiao"></use>
+        </svg>
+        <transition name="codeButtonSlide">
+          <p v-if="codeButton">隐藏代码</p>
+        </transition>
+      </div>
+
+      <div class="view" @click="toggleCode" v-else>
+        <svg class="icon">
+          <use xlink:href="#icon-daosanjiao"></use>
+        </svg>
+        <transition name="codeButtonSlide">
+          <p v-if="codeButton">查看代码</p>
+        </transition>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Button from '../lib/Button.vue'
-import  'prismjs'
-import 'prismjs/themes/prism-okaidia.css'
+import Button from '../lib/Button.vue';
+import 'prismjs';
+import 'prismjs/themes/prism-okaidia.css';
 import {computed, ref} from 'vue';
-const Prism = (window as any).Prism
+
+const Prism = (window as any).Prism;
 export default {
-  props:{
-    components:Object
+  props: {
+    components: Object
   },
-  components:{Button},
-  setup(props){
-    const html = computed(()=>{
-      return Prism.highlight(props.components.__sourceCode, Prism.languages.html, 'html')
-    })
+  components: {Button},
+  setup(props) {
+    const html = computed(() => {
+      return Prism.highlight(props.components.__sourceCode, Prism.languages.html, 'html');
+    });
 
-    const toggleCode = () => {codeVisible.value = !codeVisible.value};
+    const toggleCode = () => {
+      codeVisible.value = !codeVisible.value;
+    };
     const codeVisible = ref(false);
+    const codeButton = ref(false);
 
-    return{
+    const enter = () => {
+      codeButton.value = true;
+    };
+    const leave = () => {
+      codeButton.value = false;
+    };
+
+
+    return {
       Prism,
       html,
       codeVisible,
-      toggleCode
-    }
+      codeButton,
+      toggleCode,
+      enter,
+      leave
+    };
   }
 };
 </script>
 
 <style lang="scss" scoped>
 $border-color: #e0e0e0;
+$svg: #b3b3b3;
+$svgBg: #2893cb;
+
 .demo {
   border: 1px solid $border-color;
   margin: 16px 0 32px;
   max-width: 650px;
-  >h2 {
+
+  > h2 {
     font-size: 20px;
     padding: 8px 16px;
     border-bottom: 1px solid $border-color;
   }
+
   &-component {
     padding: 16px;
   }
@@ -63,37 +98,101 @@ $border-color: #e0e0e0;
   &-actions {
     display: flex;
     justify-content: center;
-    padding: 8px 16px;
+    align-items: center;
+    height: 40px;
     border-top: 1px solid $border-color;
     cursor: pointer;
-    &:hover{
-      background: rgba(249, 250, 252)
+
+    > .view {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      > svg {
+        position: absolute;
+        transition: all 0.4s ease 0s;
+        color: $svg;
+      }
+      p {
+        display: inline-block;
+        font-size: 15px;
+        padding-left: 10px;
+        color:$svg ;
+      }
+    }
+    > .hidden{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      > svg {
+        position: absolute;
+        transition: all 0.4s ease 0s;
+        color: $svg;
+      }
+      p {
+        display: inline-block;
+        font-size: 15px;
+        padding-left: 10px;
+        color: $svg;
+      }
+    }
+
+    &:hover {
+      background: rgba(249, 250, 252);
+
+      > .view {
+        > svg {
+          transform: translateX(-45px);
+          transition: all 0.4s ease 0s;
+          color: $svgBg;
+        }
+        >p{
+          color: $svgBg;
+        }
+      }
+      >.hidden{
+        > svg {
+          transform: translateX(-45px);
+          transition: all 0.4s ease 0s;
+        }
+        >p{
+          color: $svgBg;
+        }
+      }
     }
   }
 
   &-code {
     overflow: auto;
-    &::-webkit-scrollbar{
+
+    &::-webkit-scrollbar {
       width: 0;
     }
-    >pre {
+
+    > pre {
       line-height: 1.1;
       font-family: Consolas, 'Courier New', Courier, monospace;
       margin: 0;
       padding: 24px;
     }
   }
+
   .code-hidden {
     transition: all 0.4s cubic-bezier(0.39, 0.7, 0.18, 0.9);
     max-height: 0;
     border: none;
   }
+
   .code-show {
     max-height: 800px;
     transition: all 1s cubic-bezier(0.39, 0.7, 0.18, 0.9);
   }
 }
-.demo:hover{
+
+.demo:hover {
   box-shadow: 0 0 10px 0 rgb(232 237 250 / 80%),
   0 5px 7px 0 rgb(232 237 250 / 60%);
 }
