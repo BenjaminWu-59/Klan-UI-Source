@@ -11,20 +11,20 @@
 
     <div class="demo-actions" @click="toggleCode" @mouseover="enter" @mouseleave="leave">
       <div class="hidden"  v-if="codeVisible">
-        <svg class="icon">
+        <svg class="icon" :class="{move:codeButton === false}">
           <use xlink:href="#icon-sanjiao"></use>
         </svg>
         <transition name="codeButtonSlide">
-          <p v-if="codeButton">隐藏代码</p>
+          <div class="p" v-if="codeButton">隐藏代码</div>
         </transition>
       </div>
 
       <div class="view" v-else>
-        <svg class="icon">
+        <svg class="icon" :class="{move:codeButton === false}">
           <use xlink:href="#icon-daosanjiao"></use>
         </svg>
         <transition name="codeButtonSlide">
-          <p v-if="codeButton">查看代码</p>
+          <div class="p" v-if="codeButton">查看代码</div>
         </transition>
       </div>
     </div>
@@ -50,6 +50,7 @@ export default {
 
     const toggleCode = () => {
       codeVisible.value = !codeVisible.value;
+
     };
     const codeVisible = ref(false);
     const codeButton = ref(false);
@@ -105,18 +106,27 @@ $svgBg: #2893cb;
 
     > .view,
     .hidden{
+      height: 22px;
+      width: 86px;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
 
       > svg {
+        left: 0;
         position: absolute;
-        transition: all 0.4s ease 0s;
         color: $svg;
+        transition: all 0.4s ease 0s;
+        &.move{
+          left: 40px;
+          transition: all 0.4s ease 0s;
+        }
       }
-      p {
-        display: inline-block;
+      .p {
+        right: 0;
+        position: absolute;
+        white-space:nowrap;
         font-size: 15px;
         padding-left: 10px;
         color:$svg ;
@@ -129,11 +139,9 @@ $svgBg: #2893cb;
       > .view,
       .hidden{
         > svg {
-          transform: translateX(-45px);
-          transition: all 0.4s ease 0s;
           color: $svgBg;
         }
-        >p{
+        .p{
           color: $svgBg;
         }
       }
@@ -144,7 +152,7 @@ $svgBg: #2893cb;
     overflow: auto;
 
     &::-webkit-scrollbar {
-      width: 0;
+      display: none;
     }
 
     > pre {
@@ -152,6 +160,10 @@ $svgBg: #2893cb;
       font-family: Consolas, 'Courier New', Courier, monospace;
       margin: 0;
       padding: 24px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 

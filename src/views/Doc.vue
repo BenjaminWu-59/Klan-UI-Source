@@ -95,6 +95,7 @@ export default {
 
   > aside {
     flex-shrink: 0;
+    background: #ffffff;
     overflow: auto;
     &::-webkit-scrollbar{
       width: 0;
@@ -111,12 +112,11 @@ export default {
 aside {
   width: 200px;
   padding: 80px 0;
-  background: #ffff;
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
-  z-index: 10;
+  z-index: 20;
   box-shadow: 3px 0 3px#e2e0e0;
 
   > h2 {

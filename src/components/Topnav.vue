@@ -57,7 +57,7 @@ $color: #303030;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 20;
+  z-index: 30;
   justify-content: center;
   align-items: center;
 
