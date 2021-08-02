@@ -4,12 +4,17 @@
     <div class="demo-component">
       <component :is="components"/>
     </div>
+
     <div class="demo-actions">
-      <Button @click="codeVisible = !codeVisible">查看代码</Button>
+      <div @click="toggleCode" v-if="codeVisible">隐藏代码</div>
+      <div @click="toggleCode" v-else>查看代码</div>
     </div>
-    <div class="demo-code" v-if="codeVisible">
+
+
+    <div :class="'demo-code' + [codeVisible ? ' code-show ' : ' code-hidden ']">
       <pre class="language-html" v-html="html" />
     </div>
+
   </div>
 </template>
 
@@ -29,51 +34,61 @@ export default {
       return Prism.highlight(props.components.__sourceCode, Prism.languages.html, 'html')
     })
 
-    const codeVisible = ref(false)
+    const toggleCode = () => {codeVisible.value = !codeVisible.value};
+    const codeVisible = ref(false);
 
     return{
       Prism,
       html,
-      codeVisible
+      codeVisible,
+      toggleCode
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-$border-color: #d9d9d9;
+$border-color: #e0e0e0;
 .demo {
   border: 1px solid $border-color;
-  border-radius: 10px;
   margin: 16px 0 32px;
-  @media (min-width: 800px) {
-    width: 600px;
-  }
-  > h2 {
+  max-width: 650px;
+  >h2 {
     font-size: 20px;
     padding: 8px 16px;
     border-bottom: 1px solid $border-color;
   }
-
   &-component {
     padding: 16px;
   }
 
   &-actions {
+    display: flex;
+    justify-content: center;
     padding: 8px 16px;
-    border-top: 1px dashed $border-color;
+    border-top: 1px solid $border-color;
   }
 
   &-code {
-    padding: 8px 16px;
-    border-top: 1px dashed $border-color;
-
-    > pre {
-      border: 1px solid green;
-      line-height: 1.4;
+    overflow: auto;
+    &::-webkit-scrollbar{
+      width: 0;
+    }
+    >pre {
+      line-height: 1.1;
       font-family: Consolas, 'Courier New', Courier, monospace;
       margin: 0;
+      padding: 24px;
     }
+  }
+  .code-hidden {
+    transition: all 0.4s cubic-bezier(0.39, 0.7, 0.18, 0.9);
+    max-height: 0;
+    border: none;
+  }
+  .code-show {
+    max-height: 800px;
+    transition: all 1s cubic-bezier(0.39, 0.7, 0.18, 0.9);
   }
 }
 .demo:hover{
