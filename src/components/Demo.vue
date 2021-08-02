@@ -5,16 +5,14 @@
       <component :is="components"/>
     </div>
 
-    <div class="demo-actions">
-      <div @click="toggleCode" v-if="codeVisible">隐藏代码</div>
-      <div @click="toggleCode" v-else>查看代码</div>
-    </div>
-
-
     <div :class="'demo-code' + [codeVisible ? ' code-show ' : ' code-hidden ']">
       <pre class="language-html" v-html="html" />
     </div>
 
+    <div class="demo-actions">
+      <div @click="toggleCode" v-if="codeVisible">隐藏代码</div>
+      <div @click="toggleCode" v-else>查看代码</div>
+    </div>
   </div>
 </template>
 
@@ -67,6 +65,10 @@ $border-color: #e0e0e0;
     justify-content: center;
     padding: 8px 16px;
     border-top: 1px solid $border-color;
+    cursor: pointer;
+    &:hover{
+      background: rgba(249, 250, 252)
+    }
   }
 
   &-code {
