@@ -71,7 +71,7 @@ export default {
 .layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 150vh;
 
   > .nav {
     flex-shrink: 0;
@@ -83,7 +83,7 @@ export default {
   > .content {
     flex-grow: 1;
     padding-top: 50px;
-    padding-left: 200px;
+    padding-left: 210px;
     @media (max-width: 500px) {
       padding-left: 0;
     }

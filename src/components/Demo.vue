@@ -1,6 +1,16 @@
 <template>
+  <div class="header">
+    <span><slot class="slot" name="BigIntro"/></span>
+    <h2>
+      <svg class="icon" :class="{move:codeButton === false}">
+        <use xlink:href="#icon-at"></use>
+      </svg>
+      {{ components.__sourceCodeTitle }}
+    </h2>
+    <span><slot class="slot" name="intro"></slot></span>
+  </div>
+
   <div class="demo">
-    <h2>{{ components.__sourceCodeTitle }}</h2>
     <div class="demo-component">
       <component :is="components"/>
     </div>
@@ -80,6 +90,25 @@ export default {
 $border-color: #e0e0e0;
 $svg: #b3b3b3;
 $svgBg: #2893cb;
+
+.header{
+  margin-top: 5px;
+  >h2{
+    padding: 50px 0 8px;
+    display: flex;
+    align-items: center;
+
+    >svg{
+      height: 15px;
+      width: 15px;
+      margin-right: 4px;
+    }
+  }
+  >span{
+    color: #707070;
+  }
+}
+
 
 .demo {
   border: 1px solid $border-color;
