@@ -3,7 +3,7 @@
     <Topnav/>
     <div class="main">
       <div class="gif">
-        <img src="../assets/coding.webp"/>
+        <img src="../assets/coding/coding.webp"/>
       </div>
       <div class="banner">
         <h1>Klan&nbspUI</h1>

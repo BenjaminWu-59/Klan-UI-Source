@@ -6,7 +6,8 @@
              :ref="el => { if (el) navItems[index] = el }"
              :class="{selected: tab.title === selected, disabled: tab.disabled}"
              @click="select(tab)"
-             :key="index">{{ tab.title }}</div>
+             :key="index">{{ tab.title }}
+        </div>
         <div class="kanlan-tabs-nav-indicator" ref="indicator"></div>
       </div>
       <div class="kanlan-tabs-content">
@@ -98,11 +99,11 @@ $border-color: #d9d9d9;
 
     .disabled {
       color: #999;
-      cursor:not-allowed;;
+      cursor:not-allowed;
     }
   }
   &-content {
-    padding: 8px 0;
+    padding: 10px 0;
     &-item{
       display:none ;
       &.selected{

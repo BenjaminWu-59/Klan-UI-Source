@@ -6,7 +6,8 @@
   <Tabs v-model:selected="currentTitle">
     <Tab title="电影">《星际穿越》</Tab>
     <Tab title="动漫">《火影忍者》</Tab>
-    <Tab title="纪录片(VIP)" disabled></Tab>
+    <Tab title="纪录片">《动物世界》</Tab>
+    <Tab title="港综(VIP)" disabled></Tab>
   </Tabs>
 </template>
 

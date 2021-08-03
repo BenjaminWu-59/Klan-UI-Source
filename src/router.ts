@@ -11,6 +11,7 @@ import {h} from 'vue';
 import SlideDemo from './components/Carousel/CarouselDemo.vue';
 import MessageDemo from './components/Message/MessageDemo.vue';
 import RateDemo from './components/Rate/RateDemo.vue';
+import Intro from './Doc/Intro.vue';
 
 
 
@@ -26,7 +27,7 @@ export const router = createRouter({
             component: Doc,
             children: [
                 {path:'',redirect:'/doc/intro'},
-                {path:'intro',component:h(Markdown,{path:'../markdown/intro.md',key:'1'})},
+                {path:'intro','component':Intro},
                 {path:'get-started',component:h(Markdown,{path:'../markdown/get-started.md',key:'2'})},
                 {path:'install',component:h(Markdown,{path:'../markdown/install.md',key:'3'})},
                 {path: 'switch', 'component': SwitchDemo},
