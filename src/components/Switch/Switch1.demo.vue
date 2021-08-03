@@ -1,9 +1,6 @@
 <demo>
 常规用法
 </demo>
-<demo>
-支持disabled2
-</demo>
 <template>
   <Switch v-model:value="bool"/>
 </template>

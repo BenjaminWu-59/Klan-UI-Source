@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import Rate from '../lib/Rate.vue';
+import Rate from '../../lib/Rate.vue';
 
 export default {
   components:{

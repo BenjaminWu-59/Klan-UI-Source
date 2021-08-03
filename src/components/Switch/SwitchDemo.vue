@@ -16,7 +16,7 @@
       </Demo>
   </div>
 
-  <attr :columns="columns" :data="data"></attr>
+  <attr :data="data"></attr>
 </template>
 
 <script lang="ts">
@@ -38,7 +38,14 @@ export default {
         type: 'boolean',
         select: 'false / true',
         default: 'false',
-      }
+      },
+      {
+        params: 'disabled',
+        desc: '是否禁用',
+        type: 'boolean',
+        select: 'false / true',
+        default: 'false',
+      },
     ]
 
     return {

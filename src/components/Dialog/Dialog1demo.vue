@@ -1,5 +1,5 @@
 <demo>
-支持自定义title和content
+基础弹窗
 </demo>
 
 <template>

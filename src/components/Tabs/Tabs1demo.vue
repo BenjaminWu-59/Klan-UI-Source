@@ -4,9 +4,9 @@
 
 <template>
   <Tabs v-model:selected="currentTitle">
-    <Tab title="导航1">内容1</Tab>
-    <Tab title="导航2">内容2</Tab>
-    <Tab title="导航3">内容3</Tab>
+    <Tab title="电影">《黄飞鸿》</Tab>
+    <Tab title="电视剧">《伪装者》</Tab>
+    <Tab title="纪录片">《大明宫》</Tab>
   </Tabs>
 </template>
 
@@ -19,7 +19,7 @@ export default {
     Tabs,Tab
   },
   setup(){
-    const currentTitle = ref('导航1')
+    const currentTitle = ref('电影')
     return{
       currentTitle
     }

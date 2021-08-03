@@ -1,11 +1,11 @@
 <demo>
-支持disabled属性
+支持disabled
 </demo>
 
 <template>
-  <Button disabled>禁用按钮</Button>
+  <Button disabled>禁用默认按钮</Button>
   <Button theme="link" disabled>禁用链接按钮</Button>
-  <Button theme="text" disabled>禁用按钮</Button>
+  <Button theme="text" disabled>禁用文字按钮</Button>
 </template>
 
 <script lang="ts">

@@ -185,7 +185,7 @@ $svgBg: #2893cb;
     }
 
     > pre {
-      line-height: 1.1;
+      line-height: 1.4;
       font-family: Consolas, 'Courier New', Courier, monospace;
       margin: 0;
       padding: 24px;

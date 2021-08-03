@@ -10,7 +10,7 @@ import Markdown from './components/Markdown.vue';
 import {h} from 'vue';
 import SlideDemo from './components/Carousel/CarouselDemo.vue';
 import MessageDemo from './components/Message/MessageDemo.vue';
-import RateDemo from './components/RateDemo.vue';
+import RateDemo from './components/Rate/RateDemo.vue';
 
 
 

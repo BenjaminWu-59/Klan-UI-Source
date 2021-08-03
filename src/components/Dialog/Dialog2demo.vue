@@ -1,9 +1,9 @@
 <demo>
-一句话打开Dialog
+函数调用式弹窗
 </demo>
 
 <template>
-  <Button @click="showDialog">show</Button>
+  <Button @click="showDialog">一键开弹窗</Button>
 </template>
 
 <script lang="ts">

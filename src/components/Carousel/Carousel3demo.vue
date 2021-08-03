@@ -1,5 +1,5 @@
 <demo>
-支持hasDirector属性
+支持hasDirector
 </demo>
 
 <template>

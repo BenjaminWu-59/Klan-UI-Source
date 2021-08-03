@@ -1,5 +1,5 @@
 <demo>
-支持hasDot属性
+支持hasDot
 </demo>
 
 <template>

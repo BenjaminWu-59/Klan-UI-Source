@@ -1,10 +1,9 @@
 <demo>
-支持加载样式
+支持loading
 </demo>
 
 <template>
   <Button loading>加载中</Button>
-  <Button>加载完毕</Button>
 </template>
 
 <script lang="ts">

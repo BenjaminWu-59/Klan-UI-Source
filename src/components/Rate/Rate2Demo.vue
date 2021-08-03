@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import Rate from '../lib/Rate.vue';
+import Rate from '../../lib/Rate.vue';
 import {ref} from 'vue';
 export default {
   components:{

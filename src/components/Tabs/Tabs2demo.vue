@@ -1,12 +1,12 @@
 <demo>
-支持disabled属性
+支持disabled
 </demo>
 
 <template>
   <Tabs v-model:selected="currentTitle">
-    <Tab title="导航1">内容1</Tab>
-    <Tab title="导航2">内容2</Tab>
-    <Tab title="导航3" disabled>内容3</Tab>
+    <Tab title="电影">《星际穿越》</Tab>
+    <Tab title="动漫">《火影忍者》</Tab>
+    <Tab title="纪录片(VIP)" disabled></Tab>
   </Tabs>
 </template>
 
@@ -19,7 +19,7 @@ export default {
     Tabs,Tab
   },
   setup(){
-    const currentTitle = ref('导航1')
+    const currentTitle = ref('电影')
     return{
       currentTitle
     }

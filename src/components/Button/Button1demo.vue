@@ -2,10 +2,11 @@
 常规用法
 </demo>
 <template>
-  <Button>你好</Button>
-  <Button theme="button">你好</Button>
-  <Button theme="link">你好</Button>
-  <Button theme="text">你好</Button>
+  <Button>默认按钮</Button>
+  <Button theme="primary">主要按钮</Button>
+  <Button theme="danger">危险按钮</Button>
+  <Button theme="link">链接按钮</Button>
+  <Button theme="text">文字按钮</Button>
 </template>
 
 <script lang="ts">

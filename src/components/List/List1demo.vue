@@ -2,7 +2,7 @@
 虚拟长列表
 </demo>
 <template>
-    <List :data="data" :buffBottom="10"/>
+    <List :data="data"/>
 </template>
 
 <script lang="ts">

@@ -1,5 +1,5 @@
 <demo>
-支持duration属性
+支持duration
 </demo>
 
 <template>

@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang="scss">
-  $h: 32px;
+  $h: 37px;
   $border-color: #d9d9d9;
   $color: #333;
   $blue: #40a9ff;
@@ -55,9 +55,9 @@ export default {
   $grey:grey;
   .public-button {
     box-sizing: border-box;
-    margin: 1px;
+    margin: 2px;
     height: $h;
-    padding: 0 12px;
+    padding: 2px 12px;
     cursor: pointer;
     display: inline-flex;
     justify-content: center;
@@ -83,12 +83,31 @@ export default {
     &::-moz-focus-inner {
       border: 0;
     }
-    &.kanlan-theme-link{
+    &.kanlan-theme-primary{
       border-color: transparent;
       box-shadow: none;
-      color: $blue;
+      color:white;
+      background: $blue;
       &:hover,&:focus{
-        color: lighten($blue, 10%);
+        background: lighten($blue, 10%);
+      }
+    }
+    &.kanlan-theme-danger{
+      background: $red;
+      border-color: $red;
+      color: white;
+      &:hover,
+      &:focus {
+        background: lighten($red, 15%);
+      }
+    }
+    &.kanlan-theme-link{
+      background: white;
+      border-color: #efecec;
+      color: $blue;
+      &:hover,
+      &:focus {
+        background: lighten($blue, 30%);
       }
     }
     &.kanlan-theme-text{
@@ -102,61 +121,14 @@ export default {
 
       &.kanlan-size-big{
         font-size: 24px;
-        height: 48px;
+        height: 50px;
         padding: 0 16px;
       }
       &.kanlan-size-small{
         font-size: 12px;
-        height: 20px;
+        height: 25px;
         padding: 0 4px;
       }
-    &.kanlan-theme-button {
-      &.kanlan-level-main {
-        background: $blue;
-        color: white;
-        border-color: $blue;
-        &:hover,
-        &:focus {
-          background: darken($blue, 10%);
-          border-color: darken($blue, 10%);
-        }
-      }
-      &.kanlan-level-danger {
-        background: $red;
-        border-color: $red;
-        color: white;
-        &:hover,
-        &:focus {
-          background: darken($red, 10%);
-          border-color: darken($red, 10%);
-        }
-      }
-    }
-    &.kanlan-theme-link {
-      &.kanlan-level-danger {
-        color: $red;
-        &:hover,
-        &:focus {
-          color: darken($red, 10%);
-        }
-      }
-    }
-    &.kanlan-theme-text {
-      &.kanlan-level-main {
-        color: $blue;
-        &:hover,
-        &:focus {
-          color: darken($blue, 10%);
-        }
-      }
-      &.kanlan-level-danger {
-        color: $red;
-        &:hover,
-        &:focus {
-          color: darken($red, 10%);
-        }
-      }
-    }
     &.kanlan-theme-button {
       &[disabled] {
         cursor: not-allowed;
@@ -178,7 +150,7 @@ export default {
       display: inline-block;
       margin-right: 4px;
       border-radius: 8px;
-      border-color: $blue $blue $blue transparent;
+      border-color: black black black transparent;
       border-style: solid;
       border-width: 2px;
       animation: kanlan-spin 1s infinite linear;
