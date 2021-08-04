@@ -13,7 +13,9 @@
       />
       <Director v-if="hasDirector === true"   class="prev" dir="prev" @dirClick="dirClick"/>
       <Director v-if="hasDirector === true"   class="next" dir="next" @dirClick="dirClick"/>
-      <slot></slot>
+      <Item v-for="(item,index) in carData" :key="index" :currentIndex="currentIndex">
+        {{ item }}
+      </Item>
     </div>
   </div>
 </template>
@@ -24,16 +26,19 @@ import {
   toRefs,
   onMounted, //渲染时
   onBeforeUnmount,//销毁之前
-  getCurrentInstance
 } from 'vue'
 
 import CarDot from './Dot.vue'
 import Director from './Director.vue';
+import Item from './Item.vue'
 
 export default {
   name: 'Carousel',
-  components:{ CarDot,Director},
+  components:{ CarDot,Director,Item},
   props: {
+    carData:{
+      type:Array
+    },
     autoPlay:{
       type:Boolean,
       default:true
@@ -57,7 +62,7 @@ export default {
     dotBgColor:String // 圆点背景颜色
   },
   setup(props){
-    const instance = getCurrentInstance()
+    // const instance = getCurrentInstance()
 
     const state = reactive({
       currentIndex:props.initial,
@@ -111,7 +116,7 @@ export default {
 
     onMounted(()=>{
       //@ts-ignore
-      state.itemLen = instance.slots.default()[0].children.length //拿到实例的slots里面数组的长度，即item有几个
+      state.itemLen = props.carData.length //拿到实例的slots里面数组的长度，即item有几个
       autoPlay() //渲染时启动
     });
     onBeforeUnmount(()=>{
@@ -129,7 +134,7 @@ export default {
       dotClick,
       mouseEnter,
       mouseLeave,
-      dirClick
+      dirClick,
     }
   }
 };

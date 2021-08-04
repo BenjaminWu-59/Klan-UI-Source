@@ -5,6 +5,7 @@
 <template>
   <div class="container">
     <Carousel
+        :car-Data="carData"
         :autoPlay="true"
         :initial="0"
         :has-dot="false"

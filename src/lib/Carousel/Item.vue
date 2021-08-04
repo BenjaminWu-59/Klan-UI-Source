@@ -1,6 +1,6 @@
 <template>
   <transition>
-    <div class="car-item" v-if="selfIndex === currentIndex">
+    <div class="car-item" v-if="selfIndex === currentMyIndex">
       <slot></slot>
     </div>
   </transition>
@@ -12,29 +12,35 @@ import {
   getCurrentInstance,
   reactive,
   toRefs,
-  watch
+  watch,
 } from 'vue';
 
 export default {
   name: 'CarItem',
-  setup(){
+  props:{
+    currentIndex:{
+      type:Number
+    }
+  },
+  setup(props){
     const instance = getCurrentInstance()//获取当前实例
     const state = reactive({
       selfIndex:instance.vnode.key, //拿到当前实例的index（侬是第几个？）
       //@ts-ignore
-      currentIndex: instance.parent.ctx.currentIndex //从当前实例的父节点拿到当前节点的index
+      currentMyIndex:props.currentIndex
     })
+
+
 
     watch(()=>{
       //@ts-ignore
-      console.log(instance.parent);
-       return instance.parent.ctx.currentIndex
+       return props.currentIndex
     },(value)=>{
-      state.currentIndex = value
+      state.currentMyIndex = value
     })//监听页面的Index变化，将变化的index值赋予currentIndex
 
     return{
-      ...toRefs(state)
+      ...toRefs(state),
     }
   }
 };

@@ -1,13 +1,13 @@
 <template>
   <h1>Carousel示例</h1>
   <Demo :components="Carousel1Demo">
-    <template v-slot:BigIntro>
-      类似于旋转木马，可以轮播一组区域.
-    </template>
-    <template v-slot:intro>
-     自动轮播，可以自行设置是否轮播、轮播持续时间、初始出现页面等。
-    </template>
-  </Demo>
+   <template v-slot:BigIntro>
+     类似于旋转木马，可以轮播一组区域.
+   </template>
+   <template v-slot:intro>
+    自动轮播，可以自行设置是否轮播、轮播持续时间、初始出现页面等。
+ </template>
+ </Demo>
   <Demo :components="Carousel2demo">
     <template v-slot:intro>
       支持带有圆点的主题，点击圆点即可跳转。
