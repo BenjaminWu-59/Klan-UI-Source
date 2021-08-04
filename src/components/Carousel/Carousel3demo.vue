@@ -7,6 +7,7 @@
     <Carousel
         :autoPlay="true"
         :initial="0"
+        :has-dot="false"
         :hasDirector="true"
     >
       <carItem v-for="(item,index) in carData" :key="index">

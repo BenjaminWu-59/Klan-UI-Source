@@ -33,7 +33,7 @@ export default {
     onClose: Function,
     showClose: { type: Boolean },
   },
-  setup(props, ctx) {
+  setup(props) {
     const icon = ref({
       info: "M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z",
       success:
@@ -46,7 +46,7 @@ export default {
           "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z",
     });
 
-    const SvgDom = ref(null)
+    const SvgDom = ref()
 
     const customStyle = computed(() => {
       return {
@@ -55,14 +55,14 @@ export default {
     });
 
     onMounted(() => {
-      const SvgSource = SvgDom.value.childNodes[0].__vnode.props.d
-      if(SvgSource === icon.value.info){
+      const SvgSource = SvgDom.value.childNodes[0].outerHTML.substring(9,30)
+      if(SvgSource === icon.value.info.substring(0,21)){
          SvgDom.value.style.color = ' #0d92ff'
-      }else if(SvgSource === icon.value.success){
+      }else if(SvgSource === icon.value.success.substring(0,21)){
          SvgDom.value.style.color = ' #30c403'
-      }else if(SvgSource === icon.value.warning){
+      }else if(SvgSource === icon.value.warning.substring(0,21)){
         SvgDom.value.style.color = '  #f1ba12'
-      }else if(SvgSource === icon.value.danger){
+      }else if(SvgSource === icon.value.danger.substring(0,21)){
         SvgDom.value.style.color = ' #e9183e'
       }
     });//调控icon的颜色问题,巨特么恶心

@@ -8,6 +8,7 @@
         :autoPlay="true"
         :initial="0"
         :hasDot="true"
+        :has-director="false"
     >
       <carItem v-for="(item,index) in carData" :key="index">
         {{ item }}

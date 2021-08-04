@@ -21,7 +21,7 @@ export default {
       default:[{text:''}]
     }
   },
-  setup(props,context) {
+  setup(props) {
     //制造两个响应数据
     const stars = ref([
           {
