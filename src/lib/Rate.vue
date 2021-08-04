@@ -17,7 +17,7 @@ import starOnImg from '../assets/starOn.png';
 export default {
   props:{
     texts:{
-      type:[],
+      type: Array,
       default:[{text:''}]
     }
   },

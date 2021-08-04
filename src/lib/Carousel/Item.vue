@@ -27,6 +27,7 @@ export default {
 
     watch(()=>{
       //@ts-ignore
+      console.log(instance.parent);
        return instance.parent.ctx.currentIndex
     },(value)=>{
       state.currentIndex = value
