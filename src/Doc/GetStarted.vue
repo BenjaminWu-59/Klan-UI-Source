@@ -15,13 +15,13 @@
 
   <div class="main">
     <p>以 <strong>Button</strong> 的使用为例：</p>
-    <pre  class="language-javascript">{{html}}</pre>
+    <pre class="language-javascript">{{ html }}</pre>
   </div>
 </template>
 
 <script lang="ts">
 import 'prismjs';
-import 'prismjs/themes/prism-okaidia.css';
+import 'prismjs/themes/prism-tomorrow.css';
 export default {
   name: 'Intro',
   setup(){

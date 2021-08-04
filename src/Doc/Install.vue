@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import 'prismjs';
-import 'prismjs/themes/prism-okaidia.css';
+import 'prismjs/themes/prism-tomorrow.css';
 export default {
   name: 'Intro',
 };
