@@ -13,7 +13,7 @@
         <router-link to="/doc/switch">组件</router-link>
       </li>
       <li>
-        <a href="https://github.com">
+        <a href="https://github.com/BenjaminWu-59/Klan-UI-Source">
           <svg class="icon github">
             <use xlink:href="#icon-github"></use>
           </svg>

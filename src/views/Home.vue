@@ -11,7 +11,7 @@
           <p><strong>KLan UI</strong> 主要使用了 <strong>Vue3</strong>+<strong>TS</strong>，代码易读且使用方便。</p>
         </div>
         <p class="actions">
-          <a href="https://github.com">Github</a>
+          <a href="https://github.com">Gitee</a>
           <router-link class="start" to="/doc">Get Started</router-link>
         </p>
       </div>

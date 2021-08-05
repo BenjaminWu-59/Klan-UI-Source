@@ -9,8 +9,6 @@
         :autoPlay="true"
         :duration="2000"
         :initial="0"
-        :has-dot="false"
-        :has-director="false"
     >
     </Carousel>
   </div>
